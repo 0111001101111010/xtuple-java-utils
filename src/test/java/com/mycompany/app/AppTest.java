@@ -86,7 +86,7 @@ public class AppTest
     public void testParseSalesOrder() throws IOException{
         String input = "";
         try{
-            BufferedReader br = new BufferedReader(new FileReader("sales-order.json"));
+            BufferedReader br = new BufferedReader(new FileReader("SalesOrderWorkflow.json"));
             String sCurrentLine;
 
             while ((sCurrentLine = br.readLine()) != null) {
@@ -107,11 +107,13 @@ public class AppTest
 JSONObject data = jsonObj.getJSONObject("data");
 //one level deeper
 JSONArray dataDeeper = data.getJSONArray("data");
-
-/*
 for(int i=0;i<dataDeeper.length();i++)
 {     System.out.println("@@@"+i+"");
 //                  System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
+String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("uuid");
+System.out.println(uuid);
+}
+/*
  JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
  JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
  String number = order.getString("number");
