@@ -110,7 +110,7 @@ JSONArray dataDeeper = data.getJSONArray("data");
 for(int i=0;i<dataDeeper.length();i++)
 {     System.out.println("@@@"+i+"");
 //                  System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
-String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("uuid");
+String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("name");
 System.out.println(uuid);
 }
 /*
