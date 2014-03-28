@@ -75,12 +75,60 @@ public class AppTest
                  //String terminalType=dataDeeper.getString("terminal_type");
               }
               //JSONArray array = new JSONArray(data);
-                 //System.out.println("@@@@"+dataDeeper.toString());
+               //  System.out.println("@@@@"+dataDeeper.toString());
     }
      catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
     }
+
+    }
+    public void testParseSalesOrder() throws IOException{
+        String input = "";
+        try{
+            BufferedReader br = new BufferedReader(new FileReader("sales-order.json"));
+            String sCurrentLine;
+
+            while ((sCurrentLine = br.readLine()) != null) {
+                //System.out.println(sCurrentLine);
+                input =  input+ sCurrentLine;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//Parse Sales Order Object
+   try {
+     JSONObject jsonObj = new JSONObject(input);
+              //   System.out.println("@@@@",jsonObj.toString());
+              //lets try to parse this object..
+              //get the names
+              //get the orderIds
+/*              JSONObject data = jsonObj.getJSONObject("data");
+              //one level deeper
+              JSONArray dataDeeper = data.getJSONArray("data");
+              for(int i=0;i<dataDeeper.length();i++)
+              {     System.out.println("@@@"+i+"");
+//                  System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
+                 JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
+                 JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+                 String number = order.getString("number");
+                    System.out.println("@@@"+number);
+                 String barcode = itemSite.getString("barcode").toString();
+                    System.out.println("@@@"+barcode);
+                 String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
+                    System.out.println("@@@"+description);
+                 //String Id=dataDeeper.) ;
+                 //String terminalType=dataDeeper.getString("terminal_type");
+              }
+              //JSONArray array = new JSONArray(data);
+                 System.out.println("@@@@"+dataDeeper.toString());*/
+    }
+     catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+    }
+
     }
     /**
      * Rigourous Test :-)
