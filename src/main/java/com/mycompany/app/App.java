@@ -1,8 +1,9 @@
-package com.mycompany.app;
+//package com.mycompany.app;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.*;
+//import org.json.JSONArray;
+//import org.json.JSONException;
+//import org.json.JSONObject;
 /**
  * Hello world!
  *
@@ -14,21 +15,20 @@ public class App
     {
 
      String result ="";
-	 InputStream is;
+	 //InputStream is;
 
-	    try {
-	        is = new FileInputStream("input.json");
+	     try {
+             FileReadable input = new FileReadable("input.json");
+             System.out.println(input);
+	     } catch (FileNotFoundException e) {
+	    //     // TODO Auto-generated catch block
+	    //     e.printStackTrace();
+	     } //catch (IOException e) {
+	    //     // TODO Auto-generated catch block
+	    //     e.printStackTrace();
+	     //}
 
-	        is.close();
-	    } catch (FileNotFoundException e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    } catch (IOException e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	    try {
-			JSONObject jsonObj = new JSONObject(input);
+			//JSONObject jsonObj = new JSONObject(input);
 		//	  Log.d("@@@@",jsonObj.toString());
 			  //lets try to parse this object..
 			  //get the names
@@ -38,10 +38,7 @@ public class App
 			  //data = data.getJSONObject("data");
 			  //JSONArray array = new JSONArray(data);
 			  //Log.d("@@@@",data.toString());
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 
         System.out.println( "Hello World!" );
 
