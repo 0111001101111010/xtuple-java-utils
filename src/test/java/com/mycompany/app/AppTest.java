@@ -108,9 +108,9 @@ JSONObject data = jsonObj.getJSONObject("data");
 //one level deeper
 JSONArray dataDeeper = data.getJSONArray("data");
 for(int i=0;i<dataDeeper.length();i++)
-{     System.out.println("@@@"+i+"");
+{     System.out.println("@@@" +i+"");
 //                  System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
-String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("name");
+String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("uuid");
 System.out.println(uuid);
 }
 /*
