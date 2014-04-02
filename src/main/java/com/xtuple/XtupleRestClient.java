@@ -34,7 +34,8 @@ String readFile(String filename){
 
     /*
     * Parse Issue to SHipping
-    * @param
+    * @param inputjson
+    * Returns String Item + Issue + Barcode
     */
 public String ParseIssueToShipping(String input) throws IOException{
        // String input = "";
@@ -66,7 +67,8 @@ public String ParseIssueToShipping(String input) throws IOException{
 }//end of parseSalesOrder method
 /*
 *
-* OrdertoShipping
+* Parse Sales Order
+* Return Returns the UUID
 */
 public String ParseSalesOrder(String input) throws IOException{
         String result ="";
@@ -93,7 +95,8 @@ public String ParseSalesOrder(String input) throws IOException{
             System.out.println("@@@"+description);
         }
         //JSONArray array = new JSONArray(data);
-         System.out.println("@@@@"+dataDeeper.toString());*/
+         System.out.println("@@@@"+dataDeeper.toString());
+        */
             }
              catch (JSONException e) {
                     // TODO Auto-generated catch block
