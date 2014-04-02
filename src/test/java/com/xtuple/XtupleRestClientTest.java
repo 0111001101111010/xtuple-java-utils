@@ -25,14 +25,6 @@ public class XtupleRestClientTest
         super( testName );
     }
 
-    //read in things
-
-    public static void  thingTest()
-    {
-        XtupleRestClient client = new XtupleRestClient();
-        client.thing();
-    }
-
     public void testreadFile(){
         XtupleRestClient client = new XtupleRestClient();
         String result = client.readFile("data/IssueToShipping.json");
