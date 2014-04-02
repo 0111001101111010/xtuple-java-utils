@@ -6,17 +6,7 @@ import java.util.*;
 
 public class XtupleRestClient{
 
-/*    public static void main(String[] args)
-    {
-	    try{
-	    	JSONObject foo = new JSONObject("{}");
-	    }
-	    catch(Exception e){
-
-	    }
-
-    }*/
-    void thing(){
+void thing(){
 	   	try{
 	    	JSONObject foo = new JSONObject("{}");
 	    }
@@ -24,8 +14,8 @@ public class XtupleRestClient{
 
 	    }
 
-    }
-    String readFile(String filename){
+}
+String readFile(String filename){
         String input = "";
         try{
             BufferedReader br = new BufferedReader(new FileReader(filename));
