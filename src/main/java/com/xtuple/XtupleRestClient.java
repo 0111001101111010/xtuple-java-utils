@@ -16,5 +16,13 @@ public class XtupleRestClient{
     }
 
     }
+    void thing(){
+   	try{
+    	JSONObject foo = new JSONObject("{}");
+    }
+    catch(Exception e){
 
+    }
+
+    }
 }

@@ -29,7 +29,8 @@ public class XtupleRestClientTest
 
     public static void  thingTest()
     {
-        XtupleRestClient.thing();
+        XtupleRestClient client = new XtupleRestClient();
+        client.thing();
     }
 
     public void testParseIssueToShipping() throws IOException{
