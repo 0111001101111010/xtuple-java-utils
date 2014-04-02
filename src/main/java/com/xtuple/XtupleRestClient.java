@@ -72,7 +72,7 @@ public String ParseIssueToShipping(String input) throws IOException{
 * Parse Sales Order
 * Return Returns the UUID
 */
-public String ParseSalesOrder(String input) throws IOException{
+public String ParseSalesOrderWorkflow(String input) throws IOException{
         String result ="";
         //Parse Sales Order Object
         try {
