@@ -6,16 +6,16 @@ import java.util.*;
 
 public class XtupleRestClient{
 
-    public static void main(String[] args)
+/*    public static void main(String[] args)
     {
-    try{
-    	JSONObject foo = new JSONObject("{}");
-    }
-    catch(Exception e){
+	    try{
+	    	JSONObject foo = new JSONObject("{}");
+	    }
+	    catch(Exception e){
 
-    }
+	    }
 
-    }
+    }*/
     void thing(){
    	try{
     	JSONObject foo = new JSONObject("{}");
