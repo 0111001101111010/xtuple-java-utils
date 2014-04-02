@@ -138,9 +138,20 @@ public class XtupleRestClientTest
             System.out.println(output);
         }
         catch (Exception e){
+             e.printStackTrace();
+         }
+    }
+    public void testParseSalesOrder(){
+        XtupleRestClient client = new XtupleRestClient();
+        String result = client.readFile("IssueToShipping.json");
+        //System.out.println(result);
+        try{
+            String output = client.ParseIssueToShipping(result);
+            System.out.println(output);
         }
-
-
+        catch (Exception e){
+             e.printStackTrace();
+         }
     }
 
     /**
