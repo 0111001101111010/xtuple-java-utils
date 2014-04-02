@@ -56,7 +56,6 @@ public class XtupleRestClientTest
     public void testActivitySalesOrderWorkflow(){
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/ActivityListItem?attributes[activityType][EQUALS]=SalesOrderWorkflow
-        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/activityTypeSalesOrderWorkflow.json");
         try{
             String output = client.ParseSalesOrderWorkflow(result);
@@ -68,7 +67,6 @@ public class XtupleRestClientTest
     }
     public void testActivitySalesOrderWorkflowI(){
         XtupleRestClient client = new XtupleRestClient();
-        //https://192.168.33.10:8443/inventory/api/v1alpha1/ActivityListItem?attributes[activityType][EQUALS]=SalesOrderWorkflow
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/activityTypeSalesOrderWorkflowI.json");
         try{
