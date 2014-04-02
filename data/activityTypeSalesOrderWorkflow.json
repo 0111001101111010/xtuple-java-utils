@@ -1,86 +1,49 @@
 {
-    "data": {
-        "nameSpace": "XM",
-        "type": "ActivityListItem",
-        "data": [
-            {
-                "uuid": "3633ebc8-dcf3-4d0e-eafe-6b270806aa51",
-                "activityType": "SalesOrderWorkflow",
-                "activityAction": "P",
-                "editorKey": "50254",
-                "parent": {
-                    "uuid": "de9f91fd-e1a7-496e-c87c-5851c9b7ee20",
-                    "activityType": "SalesOrder",
-                    "name": "50254",
-                    "description": "Tremendous Toys Incorporated",
-                    "owner": null,
-                    "assignedTo": null
-                },
-                "name": "issue-to-shipping",
-                "description": "",
-                "status": "I",
-                "priority": "Very High",
-                "isActive": true,
-                "startDate": "2014-03-28T00:00:00.000Z",
-                "dueDate": null,
-                "assignDate": null,
-                "completeDate": null,
-                "owner": {
-                    "username": "admin",
-                    "propername": "Administrator",
-                    "isActive": true,
-                    "disableExport": false,
-                    "email": "mike@xtuple.com"
-                },
-                "assignedTo": {
-                    "username": "admin",
-                    "propername": "Administrator",
-                    "isActive": true,
-                    "disableExport": false,
-                    "email": "mike@xtuple.com"
-                }
-            },
-            {
-                "uuid": "0162f041-724f-4838-9730-7a79b8a3d5e0",
-                "activityType": "SalesOrderWorkflow",
-                "activityAction": "P",
-                "editorKey": "50256",
-                "parent": {
-                    "uuid": "e4dc89b6-60ae-4d6c-92ef-fb4878d2354e",
-                    "activityType": "SalesOrder",
-                    "name": "50256",
-                    "description": "Xtreme Toys LTD",
-                    "owner": null,
-                    "assignedTo": null
-                },
-                "name": "issue-to-shipping",
-                "description": "",
-                "status": "I",
-                "priority": "Very High",
-                "isActive": true,
-                "startDate": "2014-03-28T00:00:00.000Z",
-                "dueDate": null,
-                "assignDate": null,
-                "completeDate": null,
-                "owner": {
-                    "username": "admin",
-                    "propername": "Administrator",
-                    "isActive": true,
-                    "disableExport": false,
-                    "email": "mike@xtuple.com"
-                },
-                "assignedTo": {
-                    "username": "admin",
-                    "propername": "Administrator",
-                    "isActive": true,
-                    "disableExport": false,
-                    "email": "mike@xtuple.com"
-                }
-            }
-        ]
-    },
-    "status": {
-        "code": 200,
-        "message": "OK"
-    }
+  "data": {
+    "nameSpace": "XM",
+    "type": "ActivityListItem",
+    "data": [
+      {
+        "uuid": "3633ebc8-dcf3-4d0e-eafe-6b270806aa51",
+        "activityType": "SalesOrderWorkflow",
+        "activityAction": "P",
+        "editorKey": "50254",
+        "parent": {
+          "uuid": "de9f91fd-e1a7-496e-c87c-5851c9b7ee20",
+          "activityType": "SalesOrder",
+          "name": "50254",
+          "description": "Tremendous Toys Incorporated",
+          "owner": null,
+          "assignedTo": null
+        },
+        "name": "issue-to-shipping",
+        "description": "",
+        "status": "I",
+        "priority": "Very High",
+        "isActive": true,
+        "startDate": "2014-03-28T00:00:00.000Z",
+        "dueDate": null,
+        "assignDate": null,
+        "completeDate": null,
+        "owner": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        },
+        "assignedTo": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        }
+      }
+    ]
+  },
+  "status": {
+    "code": 200,
+    "message": "OK"
+  }
 }
