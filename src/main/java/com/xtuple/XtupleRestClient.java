@@ -30,7 +30,7 @@ String readFile(String filename){
             e.printStackTrace();
         }
         return input;
-    }//readFile End
+}//readFile End
 
     /*
     * Parse Issue to SHipping
@@ -42,11 +42,10 @@ public String ParseIssueToShipping(String input) throws IOException{
 	    try {
 		    JSONObject jsonObj = new JSONObject(input);
 			JSONObject data = jsonObj.getJSONObject("data");
-			//one level deeper
 			JSONArray dataDeeper = data.getJSONArray("data");
 			for(int i=0;i<dataDeeper.length();i++)
 			{     //System.out.println("@@@"+i+"");
-			//                  //System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
+				  //System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
 			 JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
 			 JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
 			 String number = order.getString("number");
@@ -62,16 +61,14 @@ public String ParseIssueToShipping(String input) throws IOException{
 			    // TODO Auto-generated catch block
 			    e.printStackTrace();
 		}
-		  return result;
-    }//end of parseSalesOrder method
+
+		  	return result;
+}//end of parseSalesOrder method
 /*
 *
 * OrdertoShipping
 */
 public String ParseSalesOrder(String input) throws IOException{
-        String result ="";
-        XtupleRestClient client = new XtupleRestClient();
-        input = client.readFile(input);
         //Parse Sales Order Object
         try {
              JSONObject jsonObj = new JSONObject(input);
