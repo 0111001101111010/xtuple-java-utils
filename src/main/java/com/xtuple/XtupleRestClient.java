@@ -69,6 +69,7 @@ public String ParseIssueToShipping(String input) throws IOException{
 * OrdertoShipping
 */
 public String ParseSalesOrder(String input) throws IOException{
+        String result ="";
         //Parse Sales Order Object
         try {
              JSONObject jsonObj = new JSONObject(input);
