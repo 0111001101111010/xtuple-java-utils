@@ -134,6 +134,11 @@ System.out.println(uuid);
     }
 
     }
+    public void testInput(){
+        XtupleRestClient client = new XtupleRestClient();
+        String result = client.readFile("SalesOrderWorkflow.json");
+        System.out.println(result);
+    }
     /**
      * Rigourous Test :-)
      */

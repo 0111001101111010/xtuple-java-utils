@@ -17,12 +17,28 @@ public class XtupleRestClient{
 
     }*/
     void thing(){
-   	try{
-    	JSONObject foo = new JSONObject("{}");
-    }
-    catch(Exception e){
+	   	try{
+	    	JSONObject foo = new JSONObject("{}");
+	    }
+	    catch(Exception e){
+
+	    }
 
     }
+    String readFile(String filename){
+        String input = "";
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String sCurrentLine;
 
-    }
+            while ((sCurrentLine = br.readLine()) != null) {
+                //System.out.println(sCurrentLine);
+                input =  input+ sCurrentLine;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return input;
+    }//readFile End
 }
