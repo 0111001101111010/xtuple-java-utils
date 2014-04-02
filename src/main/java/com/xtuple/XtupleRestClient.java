@@ -36,6 +36,7 @@ String readFile(String filename){
     * Parse Issue to SHipping
     * @param inputjson
     * Returns String Item + Issue + Barcode
+    * #should return actually an array?
     */
 public String ParseIssueToShipping(String input) throws IOException{
        // String input = "";
@@ -65,6 +66,7 @@ public String ParseIssueToShipping(String input) throws IOException{
 
 		  	return result;
 }//end of parseSalesOrder method
+
 /*
 *
 * Parse Sales Order

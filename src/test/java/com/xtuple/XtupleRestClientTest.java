@@ -62,6 +62,19 @@ public class XtupleRestClientTest
              e.printStackTrace();
          }
     }
+    public void testActivitySalesOrderWorkflow(){
+        XtupleRestClient client = new XtupleRestClient();
+        //activityTypeSalesOrderWorkflow.json
+        String result = client.readFile("SalesOrderWorkflow.json");
+        //System.out.println(result);
+        try{
+            String output = client.ParseSalesOrder(result);
+            System.out.println(output);
+        }
+        catch (Exception e){
+             e.printStackTrace();
+         }
+    }
     /**
      * Rigourous Test :-)
      */
