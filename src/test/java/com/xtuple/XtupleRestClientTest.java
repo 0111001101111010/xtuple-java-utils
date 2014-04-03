@@ -54,6 +54,7 @@ public class XtupleRestClientTest
              e.printStackTrace();
          }
     }
+
     public void testActivitySalesOrderWorkflowI(){
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
