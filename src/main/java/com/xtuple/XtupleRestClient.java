@@ -35,7 +35,7 @@ String readFile(String filename){
     /*
     * Parse Issue to SHipping
     * @param inputjson
-    * Returns String Item + Issue + Barcode
+    * Returns Pending Ids of the Immediate Sales Order
     * #should return actually an array?
     */
 public String ParseIssueToShipping(String input) throws IOException{
@@ -70,7 +70,7 @@ public String ParseIssueToShipping(String input) throws IOException{
 /*
 *
 * Parse Sales Order
-* Return Returns the UUID
+* Return Returns the UUID of Pending Sales Orders
 */
 public String ParseSalesOrderWorkflow(String input) throws IOException{
         String result ="";
