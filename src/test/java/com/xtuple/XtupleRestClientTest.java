@@ -79,6 +79,19 @@ public class XtupleRestClientTest
              e.printStackTrace();
          }
     }
+    public void testSplitCommaString(){
+        XtupleRestClient client = new XtupleRestClient();
+        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
+        String result = client.readFile("data/activityTypeSalesOrderWorkflowP.json");
+        try{
+            String output = client.ParseSalesOrderWorkflow(result);
+            System.out.println(output);
+            XtupleRestClient.SplitCommaString(result);
+        }
+        catch (Exception e){
+             e.printStackTrace();
+        }
+    }
     // public void testActivitySalesOrderWorkflow(){
     //     XtupleRestClient client = new XtupleRestClient();
     //     //https://192.168.33.10:8443/inventory/api/v1alpha1/ActivityListItem?attributes[activityType][EQUALS]=SalesOrderWorkflow

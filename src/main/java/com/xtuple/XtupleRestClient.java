@@ -112,10 +112,10 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
 * @param input string
 * Return Returns the Split String
 */
-        public String SplitCommaString(String input) throws IOException{
-        String str = "...";
-        List<String> elephantList = Arrays.asList(str.split(","));
+        public static List<String> SplitCommaString(String input) throws IOException{
+        String str = input;
+        List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
 
-        return str;
+        return items;
         }
 }
