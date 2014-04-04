@@ -92,18 +92,6 @@ public class XtupleRestClientTest
              e.printStackTrace();
         }
     }
-    // public void testActivitySalesOrderWorkflow(){
-    //     XtupleRestClient client = new XtupleRestClient();
-    //     //https://192.168.33.10:8443/inventory/api/v1alpha1/ActivityListItem?attributes[activityType][EQUALS]=SalesOrderWorkflow
-    //     String result = client.readFile("data/activityTypeSalesOrderWorkflow.json");
-    //     try{
-    //         String output = client.ParseSalesOrderWorkflow(result);
-    //         System.out.println(output);
-    //     }
-    //     catch (Exception e){
-    //          e.printStackTrace();
-    //      }
-    // }
     /**
      * Rigourous Test :-)
      */
