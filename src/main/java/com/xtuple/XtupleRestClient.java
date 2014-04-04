@@ -106,5 +106,16 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
             }
             return result;
     }
+/*
+*
+* Parse a String into an Arreay List
+* @param input string
+* Return Returns the Split String
+*/
+        public String SplitCommaString(String input) throws IOException{
+        String str = "...";
+        List<String> elephantList = Arrays.asList(str.split(","));
 
+        return str;
+        }
 }
