@@ -113,12 +113,12 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
 *
 * Filter and print a order from UUID
 * @param input UUID string, JSON object
-* Return Return line item array
+* Return Return the sales order object with all line items
 */
-        public static List<String> FilterSalesOrderUUID(String uuid, String input) throws IOException{
+        public String FilterSalesOrderUUID(String uuid, String salesOrders) throws IOException{
         String str = input;
         List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
 
-        return items;
+        return input;
         }
 }

@@ -98,13 +98,19 @@ public class XtupleRestClientTest
     }
     /*
     * Given a uuid, filter and print all the line items related to that UUID
+    * Get the SalesOrderJSONObject Passed in. Submit a call to sales-order for a specific one.
+    https://192.168.33.10:8443/inventory/api/v1alpha1/sales-order/?attributes[uuid][EQUALS]=9d6ad555-82cf-4494-972f-cfb9c0dd0e7c
+    * Print Sales Order Line Items...
+    *
     */
     public void testFilterSalesOrderUUID(){
         XtupleRestClient client = new XtupleRestClient();
-        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
+        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=P
         String result = client.readFile("data/activityTypeSalesOrderWorkflowP.json");
         try{
             String output = client.ParseSalesOrderWorkflow(result);
+            //pick a UUID && Send in a Result
+            //rank on the ones based off earliest priority/salesnumber
             System.out.println(output);
         }
         catch (Exception e){
