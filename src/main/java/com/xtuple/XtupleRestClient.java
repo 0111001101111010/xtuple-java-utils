@@ -115,7 +115,7 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
 * @param input UUID string, JSON object
 * Return Return line item array
 */
-        public static List<String> SplitCommaString(String uuid, String input) throws IOException{
+        public static List<String> FilterSalesOrderUUID(String uuid, String input) throws IOException{
         String str = input;
         List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
 

@@ -106,18 +106,10 @@ public class XtupleRestClientTest
         try{
             String output = client.ParseSalesOrderWorkflow(result);
             System.out.println(output);
-            List<String> items = XtupleRestClient.SplitCommaString(output);
-            //DEBUG, Returns the UUID items in list
-            for(String s: items){
-                System.out.println(s);
-            }
         }
-        /*
-        * You have a list
-        */
         catch (Exception e){
              e.printStackTrace();
-        }
+         }
     }
     /**
      * Rigourous Test :-)
