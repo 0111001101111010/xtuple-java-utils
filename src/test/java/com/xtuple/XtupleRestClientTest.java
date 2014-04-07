@@ -96,6 +96,9 @@ public class XtupleRestClientTest
              e.printStackTrace();
         }
     }
+    /*
+    * Given a uuid, filter and print all the line items related to that UUID
+    */
     public void testFilterSalesOrderUUID(){
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
@@ -109,6 +112,9 @@ public class XtupleRestClientTest
                 System.out.println(s);
             }
         }
+        /*
+        * You have a list
+        */
         catch (Exception e){
              e.printStackTrace();
         }

@@ -6,7 +6,7 @@ import java.util.*;
 
 public class XtupleRestClient{
 
-String readFile(String filename){
+static String readFile(String filename){
         String input = "";
         try{
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -99,11 +99,23 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
     }
 /*
 *
-* Parse a String into an Arreay List
+* Parse a String into an Array List
 * @param input string
 * Return Returns the Split String
 */
         public static List<String> SplitCommaString(String input) throws IOException{
+        String str = input;
+        List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
+
+        return items;
+        }
+/*
+*
+* Filter and print a order from UUID
+* @param input UUID string, JSON object
+* Return Return line item array
+*/
+        public static List<String> SplitCommaString(String uuid, String input) throws IOException{
         String str = input;
         List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
 
