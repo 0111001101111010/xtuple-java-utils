@@ -137,8 +137,8 @@ public String ParseSalesOrder(String input) throws IOException{
                      String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
                     System.out.println("@@@"+description);
                     //quantity
-                     String quantity = itemSite.getString("ordered");
-                        System.out.println("@@@"+quantity);
+                     String quantity = dataDeeper.getJSONObject(i).getString("ordered");
+                    System.out.println("@@@Quantity:"+quantity);
                 }
             }
              catch (JSONException e) {
