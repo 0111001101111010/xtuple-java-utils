@@ -77,25 +77,12 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
 			        String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("uuid");
 			        result = uuid +  "," + result;
 		    }
-        /*
-         JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
-         JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
-         String number = order.getString("number");
-            System.out.println("@@@"+number);
-         String barcode = itemSite.getString("barcode").toString();
-            System.out.println("@@@"+barcode);
-         String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
-            System.out.println("@@@"+description);
+            }
+         catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
         }
-        //JSONArray array = new JSONArray(data);
-         System.out.println("@@@@"+dataDeeper.toString());
-        */
-            }
-             catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-            }
-            return result;
+        return result;
     }
 /*
 *
@@ -146,8 +133,12 @@ public String ParseSalesOrder(String input) throws IOException{
                     //Name of item
                      String itemNumber = itemSite.getString("number");
                         System.out.println("@@@"+itemNumber);
+                    //item description1
                      String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
-                        System.out.println("@@@"+description);
+                    System.out.println("@@@"+description);
+                    //quantity
+                     String quantity = itemSite.getString("ordered");
+                        System.out.println("@@@"+quantity);
                 }
             }
              catch (JSONException e) {
