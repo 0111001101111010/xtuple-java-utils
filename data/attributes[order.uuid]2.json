@@ -1,0 +1,345 @@
+
+{
+  "data": {
+    "nameSpace": "XM",
+    "type": "IssueToShipping",
+    "data": [
+      {
+        "uuid": "dd8944e2-ce27-42ca-db27-dd57deacdd2a",
+        "order": {
+          "uuid": "1168cbbf-88f6-45ca-ebe2-e5e950d8d922",
+          "number": "50258",
+          "orderType": "SO",
+          "shipVia": "UPS-GROUND-UPS Ground",
+          "status": "O",
+          "canReceive": false
+        },
+        "shipment": null,
+        "lineNumber": 3,
+        "subNumber": 0,
+        "itemSite": {
+          "uuid": "bfd63fb0-9bce-405c-c91a-3ae9d12f303e",
+          "isActive": true,
+          "item": {
+            "number": "BTRUCK1",
+            "isActive": true,
+            "description1": "Blue Tough Truck",
+            "description2": "Collectors",
+            "itemType": "M",
+            "inventoryUnit": "EA",
+            "isFractional": false,
+            "classCode": "TOYS-TRUCKS",
+            "isSold": true,
+            "isConfigured": false,
+            "freightClass": "BULK",
+            "barcode": "1234-4567",
+            "listPrice": 10.99,
+            "standardCost": 2.5704,
+            "wholesalePrice": 5,
+            "priceUnit": "EA",
+            "priceUnitRatio": 1,
+            "productWeight": 3.5,
+            "packageWeight": 0.25,
+            "aliases": [],
+            "characteristics": [
+              {
+                "uuid": "ce67187e-a0cb-4e8f-df3e-4f7077c68ba0",
+                "characteristic": "Color",
+                "value": "PL126",
+                "isDefault": true,
+                "price": 0
+              }
+            ],
+            "maximumDesiredCost": 5
+          },
+          "site": {
+            "code": "WH1",
+            "description": "Prodiem Toys Warehouse 1",
+            "isActive": true,
+            "address": {
+              "number": "9",
+              "isActive": true,
+              "line1": "Prodiem Toys Inc.",
+              "line2": "1 Playland Way",
+              "line3": "",
+              "city": "Norfolk",
+              "state": "",
+              "postalCode": "23180",
+              "country": "United States"
+            },
+            "contact": {
+              "number": "12",
+              "isActive": true,
+              "name": "Jed Hastings",
+              "firstName": "Jed",
+              "lastName": "Hastings",
+              "jobTitle": "",
+              "phone": "800-342-5657",
+              "alternate": "",
+              "fax": "800-342-1100",
+              "primaryEmail": "jh@prodiem.com",
+              "webAddress": "",
+              "address": null,
+              "owner": null,
+              "account": null,
+              "accountParent": null
+            },
+            "taxZone": null,
+            "incoterms": "",
+            "shipVia": null,
+            "siteType": {
+              "name": "MFG",
+              "description": "Manufacturing",
+              "emailProfile": null,
+              "characteristics": [],
+              "workflow": []
+            }
+          },
+          "controlMethod": "R",
+          "locationControl": false,
+          "receiveLocation": null,
+          "receiveLocationAuto": false,
+          "stockLocation": null,
+          "stockLocationAuto": false,
+          "quantityOnHand": -9,
+          "detail": [],
+          "perishable": false,
+          "warranty": false
+        },
+        "scheduleDate": "2014-04-12T00:00:00.000Z",
+        "unit": "EA",
+        "ordered": 1,
+        "shipped": 0,
+        "returned": 0,
+        "balance": 1,
+        "atShipping": 0,
+        "toIssue": null
+      },
+      {
+        "uuid": "74089135-e3d8-4952-9302-b69b604de64f",
+        "order": {
+          "uuid": "1168cbbf-88f6-45ca-ebe2-e5e950d8d922",
+          "number": "50258",
+          "orderType": "SO",
+          "shipVia": "UPS-GROUND-UPS Ground",
+          "status": "O",
+          "canReceive": false
+        },
+        "shipment": null,
+        "lineNumber": 2,
+        "subNumber": 0,
+        "itemSite": {
+          "uuid": "016befd9-d8ed-498c-e596-415488b691b5",
+          "isActive": true,
+          "item": {
+            "number": "YTRUCK1",
+            "isActive": true,
+            "description1": "Yellow Tough Truck",
+            "description2": "Truck Type 1",
+            "itemType": "M",
+            "inventoryUnit": "EA",
+            "isFractional": false,
+            "classCode": "TOYS-TRUCKS",
+            "isSold": true,
+            "isConfigured": false,
+            "freightClass": "BULK",
+            "barcode": "1234-4567",
+            "listPrice": 10.99,
+            "standardCost": 2.5634,
+            "wholesalePrice": 5,
+            "priceUnit": "EA",
+            "priceUnitRatio": 1,
+            "productWeight": 3.5,
+            "packageWeight": 0.25,
+            "aliases": [],
+            "characteristics": [
+              {
+                "uuid": "0176325d-527f-4aeb-f4a5-c64b0dfdc7dc",
+                "characteristic": "Color",
+                "value": "PL127",
+                "isDefault": true,
+                "price": 0
+              },
+              {
+                "uuid": "6779fd28-10ac-4c2b-ecc3-aa829f3c5268",
+                "characteristic": "Finish",
+                "value": "Gloss",
+                "isDefault": true,
+                "price": 0
+              }
+            ],
+            "maximumDesiredCost": 5
+          },
+          "site": {
+            "code": "WH1",
+            "description": "Prodiem Toys Warehouse 1",
+            "isActive": true,
+            "address": {
+              "number": "9",
+              "isActive": true,
+              "line1": "Prodiem Toys Inc.",
+              "line2": "1 Playland Way",
+              "line3": "",
+              "city": "Norfolk",
+              "state": "",
+              "postalCode": "23180",
+              "country": "United States"
+            },
+            "contact": {
+              "number": "12",
+              "isActive": true,
+              "name": "Jed Hastings",
+              "firstName": "Jed",
+              "lastName": "Hastings",
+              "jobTitle": "",
+              "phone": "800-342-5657",
+              "alternate": "",
+              "fax": "800-342-1100",
+              "primaryEmail": "jh@prodiem.com",
+              "webAddress": "",
+              "address": null,
+              "owner": null,
+              "account": null,
+              "accountParent": null
+            },
+            "taxZone": null,
+            "incoterms": "",
+            "shipVia": null,
+            "siteType": {
+              "name": "MFG",
+              "description": "Manufacturing",
+              "emailProfile": null,
+              "characteristics": [],
+              "workflow": []
+            }
+          },
+          "controlMethod": "R",
+          "locationControl": false,
+          "receiveLocation": null,
+          "receiveLocationAuto": false,
+          "stockLocation": null,
+          "stockLocationAuto": false,
+          "quantityOnHand": 0,
+          "detail": [],
+          "perishable": false,
+          "warranty": false
+        },
+        "scheduleDate": "2014-04-12T00:00:00.000Z",
+        "unit": "EA",
+        "ordered": 1,
+        "shipped": 0,
+        "returned": 0,
+        "balance": 1,
+        "atShipping": 0,
+        "toIssue": null
+      },
+      {
+        "uuid": "7e6b69b6-bbd8-4e24-a22c-08a7c633377b",
+        "order": {
+          "uuid": "1168cbbf-88f6-45ca-ebe2-e5e950d8d922",
+          "number": "50258",
+          "orderType": "SO",
+          "shipVia": "UPS-GROUND-UPS Ground",
+          "status": "O",
+          "canReceive": false
+        },
+        "shipment": null,
+        "lineNumber": 1,
+        "subNumber": 0,
+        "itemSite": {
+          "uuid": "3d6c0956-ccc1-41d3-8b92-0278463e1c9d",
+          "isActive": true,
+          "item": {
+            "number": "THING",
+            "isActive": true,
+            "description1": "636920001195",
+            "description2": "",
+            "itemType": "P",
+            "inventoryUnit": "CS",
+            "isFractional": false,
+            "classCode": "SERVICES",
+            "isSold": true,
+            "isConfigured": false,
+            "freightClass": "BULK",
+            "barcode": null,
+            "listPrice": 20,
+            "standardCost": 0,
+            "wholesalePrice": 10,
+            "priceUnit": "CS",
+            "priceUnitRatio": 1,
+            "productWeight": 0,
+            "packageWeight": 0,
+            "aliases": [],
+            "characteristics": [],
+            "maximumDesiredCost": 0
+          },
+          "site": {
+            "code": "WH1",
+            "description": "Prodiem Toys Warehouse 1",
+            "isActive": true,
+            "address": {
+              "number": "9",
+              "isActive": true,
+              "line1": "Prodiem Toys Inc.",
+              "line2": "1 Playland Way",
+              "line3": "",
+              "city": "Norfolk",
+              "state": "",
+              "postalCode": "23180",
+              "country": "United States"
+            },
+            "contact": {
+              "number": "12",
+              "isActive": true,
+              "name": "Jed Hastings",
+              "firstName": "Jed",
+              "lastName": "Hastings",
+              "jobTitle": "",
+              "phone": "800-342-5657",
+              "alternate": "",
+              "fax": "800-342-1100",
+              "primaryEmail": "jh@prodiem.com",
+              "webAddress": "",
+              "address": null,
+              "owner": null,
+              "account": null,
+              "accountParent": null
+            },
+            "taxZone": null,
+            "incoterms": "",
+            "shipVia": null,
+            "siteType": {
+              "name": "MFG",
+              "description": "Manufacturing",
+              "emailProfile": null,
+              "characteristics": [],
+              "workflow": []
+            }
+          },
+          "controlMethod": "R",
+          "locationControl": false,
+          "receiveLocation": null,
+          "receiveLocationAuto": false,
+          "stockLocation": null,
+          "stockLocationAuto": false,
+          "quantityOnHand": -2,
+          "detail": [],
+          "perishable": false,
+          "warranty": false
+        },
+        "scheduleDate": "2014-04-12T00:00:00.000Z",
+        "unit": "CS",
+        "ordered": 2,
+        "shipped": 0,
+        "returned": 0,
+        "balance": 2,
+        "atShipping": 0,
+        "toIssue": null
+      }
+    ]
+  },
+  "status": {
+    "code": 200,
+    "message": "OK"
+  }
+}

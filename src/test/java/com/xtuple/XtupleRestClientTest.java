@@ -43,6 +43,7 @@ public class XtupleRestClientTest
     }
 
     public void testActivitySalesOrderWorkflow(){
+        System.out.println("Start of testActivitySalesOrderWorkflow");
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/ActivityListItem?attributes[activityType][EQUALS]=SalesOrderWorkflow
         String result = client.readFile("data/activityTypeSalesOrderWorkflow.json");
@@ -53,9 +54,11 @@ public class XtupleRestClientTest
         catch (Exception e){
              e.printStackTrace();
          }
+        System.out.println("End of testActivitySalesOrderWorkflow");
     }
 
     public void testActivitySalesOrderWorkflowI(){
+        System.out.println("Start of testActivitySalesOrderWorkflowI");
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/activityTypeSalesOrderWorkflowI.json");
@@ -66,8 +69,10 @@ public class XtupleRestClientTest
         catch (Exception e){
              e.printStackTrace();
          }
+        System.out.println("End of testActivitySalesOrderWorkflowI");
     }
     public void testActivitySalesOrderWorkflowP(){
+        System.out.println("Start of testActivitySalesOrderWorkflowP");
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/activityTypeSalesOrderWorkflowP.json");
@@ -78,8 +83,10 @@ public class XtupleRestClientTest
         catch (Exception e){
              e.printStackTrace();
          }
+        System.out.println("End of testActivitySalesOrderWorkflowP");
     }
     public void testSplitCommaString(){
+        System.out.println("Start of testSplitCommaString");
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/activityTypeSalesOrderWorkflowP.json");
@@ -95,6 +102,7 @@ public class XtupleRestClientTest
         catch (Exception e){
              e.printStackTrace();
         }
+       System.out.println("End of testSplitCommaString");
     }
     /*
     * Given a uuid, filter and print all the line items related to that UUID
@@ -104,18 +112,23 @@ public class XtupleRestClientTest
     *
     */
     public void testFilterSalesOrderUUID(){
+    System.out.println("Start of testFilterSalesOrderUUID");
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=P
-        String result = client.readFile("data/activityTypeSalesOrderWorkflowP.json");
+        String result = client.readFile("data/attributes[order.uuid]2.json");
         try{
-            String output = client.ParseSalesOrderWorkflow(result);
+            String output = client.ParseSalesOrder(result);
             //pick a UUID && Send in a Result
+            //sample UUID = f936ef4b-bd0a-44ab-ce94-7f120ffbb53a
             //rank on the ones based off earliest priority/salesnumber
-            System.out.println(output);
+            //send a request for https://192.168.33.10:8443/inventory/api/v1alpha1/issue-to-shipping/?attributes[order.uuid][EQUALS]=f936ef4b-bd0a-44ab-ce94-7f120ffbb53a
+            //client.FilterSalesOrderUUID()
+            //System.out.println(output);
         }
         catch (Exception e){
              e.printStackTrace();
          }
+    System.out.println("End of of testFilterSalesOrderUUID");
     }
     /**
      * Rigourous Test :-)

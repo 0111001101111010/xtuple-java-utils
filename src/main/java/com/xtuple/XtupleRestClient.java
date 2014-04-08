@@ -116,9 +116,44 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
 * Return Return the sales order object with all line items
 */
         public String FilterSalesOrderUUID(String uuid, String salesOrders) throws IOException{
-        String str = input;
+        String str = uuid;
         List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
 
-        return input;
+        return uuid;
         }
+/*
+*
+* Parsed Sales Order, Serialized Items
+*/
+public String ParseSalesOrder(String input) throws IOException{
+        String result ="";
+        //Parse Sales Order Object
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            //one level deeper
+            JSONArray dataDeeper = data.getJSONArray("data");
+            //order information
+            //Sales Order Number
+             JSONObject order = dataDeeper.getJSONObject(0).getJSONObject("order");
+             String number = order.getString("number");
+                System.out.println("@@@"+number);
+                for(int i=0;i<dataDeeper.length();i++){
+                    //Barcode of item
+                     JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+                     String barcode = itemSite.getString("barcode");
+                        System.out.println("@@@"+barcode);
+                    //Name of item
+                     String itemNumber = itemSite.getString("number");
+                        System.out.println("@@@"+itemNumber);
+                     String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
+                        System.out.println("@@@"+description);
+                }
+            }
+             catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+            }
+            return result;
+    }
 }

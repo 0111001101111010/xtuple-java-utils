@@ -1,0 +1,131 @@
+
+{
+  "data": {
+    "nameSpace": "XM",
+    "type": "IssueToShipping",
+    "data": [
+      {
+        "uuid": "b803a3b9-9372-4567-8223-103df591a2f7",
+        "order": {
+          "uuid": "f936ef4b-bd0a-44ab-ce94-7f120ffbb53a",
+          "number": "50252",
+          "orderType": "SO",
+          "shipVia": "UPS-GROUND-UPS Ground",
+          "status": "O",
+          "canReceive": false
+        },
+        "shipment": null,
+        "lineNumber": 1,
+        "subNumber": 0,
+        "itemSite": {
+          "uuid": "016befd9-d8ed-498c-e596-415488b691b5",
+          "isActive": true,
+          "item": {
+            "number": "YTRUCK1",
+            "isActive": true,
+            "description1": "Yellow Tough Truck",
+            "description2": "Truck Type 1",
+            "itemType": "M",
+            "inventoryUnit": "EA",
+            "isFractional": false,
+            "classCode": "TOYS-TRUCKS",
+            "isSold": true,
+            "isConfigured": false,
+            "freightClass": "BULK",
+            "barcode": "1234-4567",
+            "listPrice": 10.99,
+            "standardCost": 2.5634,
+            "wholesalePrice": 5,
+            "priceUnit": "EA",
+            "priceUnitRatio": 1,
+            "productWeight": 3.5,
+            "packageWeight": 0.25,
+            "aliases": [],
+            "characteristics": [
+              {
+                "uuid": "0176325d-527f-4aeb-f4a5-c64b0dfdc7dc",
+                "characteristic": "Color",
+                "value": "PL127",
+                "isDefault": true,
+                "price": 0
+              },
+              {
+                "uuid": "6779fd28-10ac-4c2b-ecc3-aa829f3c5268",
+                "characteristic": "Finish",
+                "value": "Gloss",
+                "isDefault": true,
+                "price": 0
+              }
+            ],
+            "maximumDesiredCost": 5
+          },
+          "site": {
+            "code": "WH1",
+            "description": "Prodiem Toys Warehouse 1",
+            "isActive": true,
+            "address": {
+              "number": "9",
+              "isActive": true,
+              "line1": "Prodiem Toys Inc.",
+              "line2": "1 Playland Way",
+              "line3": "",
+              "city": "Norfolk",
+              "state": "",
+              "postalCode": "23180",
+              "country": "United States"
+            },
+            "contact": {
+              "number": "12",
+              "isActive": true,
+              "name": "Jed Hastings",
+              "firstName": "Jed",
+              "lastName": "Hastings",
+              "jobTitle": "",
+              "phone": "800-342-5657",
+              "alternate": "",
+              "fax": "800-342-1100",
+              "primaryEmail": "jh@prodiem.com",
+              "webAddress": "",
+              "address": null,
+              "owner": null,
+              "account": null,
+              "accountParent": null
+            },
+            "taxZone": null,
+            "incoterms": "",
+            "shipVia": null,
+            "siteType": {
+              "name": "MFG",
+              "description": "Manufacturing",
+              "emailProfile": null,
+              "characteristics": [],
+              "workflow": []
+            }
+          },
+          "controlMethod": "R",
+          "locationControl": false,
+          "receiveLocation": null,
+          "receiveLocationAuto": false,
+          "stockLocation": null,
+          "stockLocationAuto": false,
+          "quantityOnHand": 0,
+          "detail": [],
+          "perishable": false,
+          "warranty": false
+        },
+        "scheduleDate": "2014-03-31T00:00:00.000Z",
+        "unit": "EA",
+        "ordered": 1,
+        "shipped": 0,
+        "returned": 0,
+        "balance": 1,
+        "atShipping": 0,
+        "toIssue": null
+      }
+    ]
+  },
+  "status": {
+    "code": 200,
+    "message": "OK"
+  }
+}
