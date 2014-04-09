@@ -104,6 +104,23 @@ public class XtupleRestClientTest
         }
        System.out.println("End of testSplitCommaString");
     }
+    //test for activityType Step 1
+    public void testActivitySalesOrderWorkflowActivityType(){
+        System.out.println("Start of testActivitySalesOrderWorkflow~1");
+        XtupleRestClient client = new XtupleRestClient();
+        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
+        String result = client.readFile("data/workflow/activityTypeSalesOrderWorkflow.json");
+        try{
+            String output = client.ParseSalesOrderWorkflow(result, "PackWorkflow");
+            System.out.println(output);
+        }
+        catch (Exception e){
+             e.printStackTrace();
+         }
+        System.out.println("End of testActivitySalesOrderWorkflowP~1");
+    }
+
+    //Step 2
     /*
     * Given a uuid, filter and print all the line items related to that UUID
     * Get the SalesOrderJSONObject Passed in. Submit a call to sales-order for a specific one.
@@ -112,7 +129,7 @@ public class XtupleRestClientTest
     *
     */
     public void testFilterSalesOrderUUID(){
-    System.out.println("Start of testFilterSalesOrderUUID");
+    System.out.println("Start of testFilterSalesOrderUUID~2");
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=P
         //tell it which one to parse for example parse for all
@@ -129,22 +146,7 @@ public class XtupleRestClientTest
         catch (Exception e){
              e.printStackTrace();
          }
-    System.out.println("End of of testFilterSalesOrderUUID");
-    }
-    //test for activityType
-    public void testActivitySalesOrderWorkflowActivityType(){
-        System.out.println("Start of testActivitySalesOrderWorkflowP");
-        XtupleRestClient client = new XtupleRestClient();
-        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
-        String result = client.readFile("data/workflow/activityTypeSalesOrderWorkflow.json");
-        try{
-            String output = client.ParseSalesOrderWorkflow(result, "PackWorkflow");
-            System.out.println(output);
-        }
-        catch (Exception e){
-             e.printStackTrace();
-         }
-        System.out.println("End of testActivitySalesOrderWorkflowP");
+    System.out.println("End of of testFilterSalesOrderUUID~2");
     }
     /**
      * Rigourous Test :-)

@@ -37,8 +37,7 @@ public String ParseIssueToShipping(String input) throws IOException{
 			JSONObject data = jsonObj.getJSONObject("data");
 			JSONArray dataDeeper = data.getJSONArray("data");
 			for(int i=0;i<dataDeeper.length();i++)
-			{     //System.out.println("@@@"+i+"");
-				  //System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
+			{
 			 JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
 			 JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
 			 String number = order.getString("number");
