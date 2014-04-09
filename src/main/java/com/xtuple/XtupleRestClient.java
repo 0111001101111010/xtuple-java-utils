@@ -86,6 +86,38 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
     }
 /*
 *
+* Parse Sales Order workflow, on specific ActivityType
+* Return Returns the UUID of Pending Sales Orders of Activty type
+*/
+public String ParseSalesOrderWorkflow(String input, String type) throws IOException{
+        String result ="";
+        //Parse Sales Order Object
+        System.out.println("foo");
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            //one level deeper
+            JSONArray dataDeeper = data.getJSONArray("data");
+                for(int i=0;i<dataDeeper.length();i++){
+                    //System.out.println("@@@" +i+"");
+                     System.out.println(dataDeeper.getJSONObject(i).getString("name"));
+                     System.out.println(type);
+                     System.out.println(dataDeeper.getJSONObject(i).getString("name")==type);
+                    //System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
+                if(dataDeeper.getJSONObject(i).getString("name")==type){
+                    String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("uuid");
+                    result = uuid +  "," + result;
+                }
+            }
+            }
+         catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+        return result;
+    }
+/*
+*
 * Parse a String into an Array List
 * @param input string
 * Return Returns the Split String

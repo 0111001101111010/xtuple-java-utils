@@ -131,6 +131,21 @@ public class XtupleRestClientTest
          }
     System.out.println("End of of testFilterSalesOrderUUID");
     }
+    //test for activityType
+    public void testActivitySalesOrderWorkflowActivityType(){
+        System.out.println("Start of testActivitySalesOrderWorkflowP");
+        XtupleRestClient client = new XtupleRestClient();
+        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
+        String result = client.readFile("data/workflow/activityTypeSalesOrderWorkflow.json");
+        try{
+            String output = client.ParseSalesOrderWorkflow(result, "PackWorkflow");
+            System.out.println(output);
+        }
+        catch (Exception e){
+             e.printStackTrace();
+         }
+        System.out.println("End of testActivitySalesOrderWorkflowP");
+    }
     /**
      * Rigourous Test :-)
      */
