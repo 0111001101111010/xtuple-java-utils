@@ -92,7 +92,6 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
 public String ParseSalesOrderWorkflow(String input, String type) throws IOException{
         String result ="";
         //Parse Sales Order Object
-        System.out.println("foo");
         try {
             JSONObject jsonObj = new JSONObject(input);
             JSONObject data = jsonObj.getJSONObject("data");
@@ -100,11 +99,8 @@ public String ParseSalesOrderWorkflow(String input, String type) throws IOExcept
             JSONArray dataDeeper = data.getJSONArray("data");
                 for(int i=0;i<dataDeeper.length();i++){
                     //System.out.println("@@@" +i+"");
-                     System.out.println(dataDeeper.getJSONObject(i).getString("name"));
-                     System.out.println(type);
-                     System.out.println(dataDeeper.getJSONObject(i).getString("name")==type);
                     //System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
-                if(dataDeeper.getJSONObject(i).getString("name")==type){
+                if(type.equals(dataDeeper.getJSONObject(i).getString("name"))){
                     String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("uuid");
                     result = uuid +  "," + result;
                 }
