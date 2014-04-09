@@ -1,0 +1,272 @@
+
+{
+  "data": {
+    "nameSpace": "XM",
+    "type": "ActivityListItem",
+    "data": [
+      {
+        "uuid": "f58ffd35-a86f-4b3f-946f-ac8fcded1f84",
+        "activityType": "SalesOrderWorkflow",
+        "activityAction": "P",
+        "editorKey": "4",
+        "parent": {
+          "uuid": "ede17646-4133-4765-ad87-0463dea5722b",
+          "activityType": "SalesOrder",
+          "name": "4",
+          "description": "Xtreme Toys LTD",
+          "owner": null,
+          "assignedTo": null
+        },
+        "name": "PackWorkflow",
+        "description": "",
+        "status": "C",
+        "priority": "Very High",
+        "isActive": false,
+        "startDate": "2014-04-09T00:00:00.000Z",
+        "dueDate": "2014-04-14T00:00:00.000Z",
+        "assignDate": null,
+        "completeDate": null,
+        "owner": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        },
+        "assignedTo": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        }
+      },
+      {
+        "uuid": "290ac770-02c5-4dc0-d0e6-452fadf2c738",
+        "activityType": "SalesOrderWorkflow",
+        "activityAction": "S",
+        "editorKey": "4",
+        "parent": {
+          "uuid": "ede17646-4133-4765-ad87-0463dea5722b",
+          "activityType": "SalesOrder",
+          "name": "4",
+          "description": "Xtreme Toys LTD",
+          "owner": null,
+          "assignedTo": null
+        },
+        "name": "ShipWorkflow",
+        "description": null,
+        "status": "C",
+        "priority": "Normal",
+        "isActive": false,
+        "startDate": null,
+        "dueDate": "2014-04-09T00:00:00.000Z",
+        "assignDate": null,
+        "completeDate": null,
+        "owner": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        },
+        "assignedTo": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        }
+      },
+      {
+        "uuid": "60b7587a-52a9-4027-d7fc-6d6603634e7c",
+        "activityType": "SalesOrderWorkflow",
+        "activityAction": "S",
+        "editorKey": "7",
+        "parent": {
+          "uuid": "ba40481c-a98f-40b7-c4f0-5bfe2a051785",
+          "activityType": "SalesOrder",
+          "name": "7",
+          "description": "Tremendous Toys Incorporated",
+          "owner": null,
+          "assignedTo": null
+        },
+        "name": "SalesOrderWorkflow",
+        "description": null,
+        "status": "C",
+        "priority": "Very High",
+        "isActive": false,
+        "startDate": "2014-04-09T00:00:00.000Z",
+        "dueDate": "2014-04-09T00:00:00.000Z",
+        "assignDate": null,
+        "completeDate": null,
+        "owner": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        },
+        "assignedTo": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        }
+      },
+      {
+        "uuid": "fc286500-1fdb-4007-9417-528111d665e7",
+        "activityType": "SalesOrderWorkflow",
+        "activityAction": "P",
+        "editorKey": "6",
+        "parent": {
+          "uuid": "5d0c4030-c44c-4028-f6bc-56f77b2655d3",
+          "activityType": "SalesOrder",
+          "name": "6",
+          "description": "Xtreme Toys LTD",
+          "owner": null,
+          "assignedTo": null
+        },
+        "name": "PackWorkflow",
+        "description": "",
+        "status": "C",
+        "priority": "Very High",
+        "isActive": false,
+        "startDate": "2014-04-09T00:00:00.000Z",
+        "dueDate": "2014-04-14T00:00:00.000Z",
+        "assignDate": null,
+        "completeDate": null,
+        "owner": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        },
+        "assignedTo": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        }
+      },
+      {
+        "uuid": "1a5baad6-8326-4166-99df-77c873f6407e",
+        "activityType": "SalesOrderWorkflow",
+        "activityAction": "S",
+        "editorKey": "6",
+        "parent": {
+          "uuid": "5d0c4030-c44c-4028-f6bc-56f77b2655d3",
+          "activityType": "SalesOrder",
+          "name": "6",
+          "description": "Xtreme Toys LTD",
+          "owner": null,
+          "assignedTo": null
+        },
+        "name": "ShipWorkflow",
+        "description": null,
+        "status": "I",
+        "priority": "Normal",
+        "isActive": true,
+        "startDate": null,
+        "dueDate": "2014-04-14T00:00:00.000Z",
+        "assignDate": null,
+        "completeDate": null,
+        "owner": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        },
+        "assignedTo": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        }
+      },
+      {
+        "uuid": "8ec027fc-8ae7-45f6-878f-476550d9ba3b",
+        "activityType": "SalesOrderWorkflow",
+        "activityAction": "P",
+        "editorKey": "5",
+        "parent": {
+          "uuid": "4b5bedea-f47a-421f-e5a9-9e1f73766ca2",
+          "activityType": "SalesOrder",
+          "name": "5",
+          "description": "Xtreme Toys LTD",
+          "owner": null,
+          "assignedTo": null
+        },
+        "name": "SalesOrderWorkflow",
+        "description": null,
+        "status": "C",
+        "priority": "Very High",
+        "isActive": false,
+        "startDate": "2014-04-09T00:00:00.000Z",
+        "dueDate": "2014-04-14T00:00:00.000Z",
+        "assignDate": null,
+        "completeDate": null,
+        "owner": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        },
+        "assignedTo": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        }
+      },
+      {
+        "uuid": "17d342f6-d7f7-457c-bbc0-096aa36869df",
+        "activityType": "SalesOrderWorkflow",
+        "activityAction": "S",
+        "editorKey": "5",
+        "parent": {
+          "uuid": "4b5bedea-f47a-421f-e5a9-9e1f73766ca2",
+          "activityType": "SalesOrder",
+          "name": "5",
+          "description": "Xtreme Toys LTD",
+          "owner": null,
+          "assignedTo": null
+        },
+        "name": "ShippingWorkflow",
+        "description": null,
+        "status": "C",
+        "priority": "Normal",
+        "isActive": false,
+        "startDate": null,
+        "dueDate": "2014-04-14T00:00:00.000Z",
+        "assignDate": null,
+        "completeDate": null,
+        "owner": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        },
+        "assignedTo": {
+          "username": "admin",
+          "propername": "Administrator",
+          "isActive": true,
+          "disableExport": false,
+          "email": "mike@xtuple.com"
+        }
+      }
+    ]
+  },
+  "status": {
+    "code": 200,
+    "message": "OK"
+  }
+}
