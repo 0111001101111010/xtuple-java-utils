@@ -179,7 +179,7 @@ public String ParseSalesOrder(String input) throws IOException{
             return result;
     }
 
-public String ParseIssueToShippingShippingID(String input) throws IOException{
+public String ParseIssueToShippingShippable(String input) throws IOException{
        // String input = "";
      String result = "";
         try {
@@ -189,7 +189,40 @@ public String ParseIssueToShippingShippingID(String input) throws IOException{
             for(int i=0;i<dataDeeper.length();i++)
             {
              String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
-             JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
+             String blank = null;
+             //#equals NULL?
+            // if (shipment.equals(blank)){
+                 JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+                 //name
+                 String name = itemSite.getString("number");
+                    //System.out.println("@@@"+number);
+                 //String number = order.getString("number");
+                    //System.out.println("@@@"+number);
+                 String barcode = itemSite.getString("barcode").toString();
+                    //System.out.println("@@@"+barcode);
+                 result = shipment + "," + barcode ;
+                 System.out.println(result);
+              }
+            //}
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+
+            return result;
+    }//end of parseSalesOrder method
+//get issue to shipping SHIPMENT IDs if defined.
+public String ParseIssueToShippingShipped(String input) throws IOException{
+       // String input = "";
+     String result = "";
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
              JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
              //name
              String name = itemSite.getString("number");
@@ -198,7 +231,7 @@ public String ParseIssueToShippingShippingID(String input) throws IOException{
                 //System.out.println("@@@"+number);
              String barcode = itemSite.getString("barcode").toString();
                 //System.out.println("@@@"+barcode);
-             result = name + "," + barcode ;
+             result = shipment + "," + barcode ;
              System.out.println(result);
             }
          }//end of try
