@@ -104,6 +104,7 @@ public class XtupleRestClientTest
         }
        System.out.println("End of testSplitCommaString");
     }
+    //#Done before hand.. wait what. Server..?
     //test for activityType Step 1
     public void testActivitySalesOrderWorkflowActivityType(){
         System.out.println("Start of testActivitySalesOrderWorkflow~1");
@@ -119,15 +120,19 @@ public class XtupleRestClientTest
          }
         System.out.println("End of testActivitySalesOrderWorkflowP~1");
     }
+    //Fire off a request based off the UUID and return the result. This is one issue to shipping object
 
     //Step 2
     /*
     * Given a uuid, filter and print all the line items related to that UUID
     * Get the SalesOrderJSONObject Passed in. Submit a call to sales-order for a specific one.
-    https://192.168.33.10:8443/inventory/api/v1alpha1/sales-order/?attributes[uuid][EQUALS]=9d6ad555-82cf-4494-972f-cfb9c0dd0e7c
-    * Print Sales Order Line Items...
-    *
+    https://192.168.33.10:8443/inventory/api/v1alpha1/resources/sales-order/?attributes[uuid][EQUALS]=9d6ad555-82cf-4494-972f-cfb9c0dd0e7c
+    * Print Sales Order Line Items... with shipment IDs?
+    * //pickfirst
     */
+    //Shipment ID number where
+    // - ordered != shipped &&
+    // - shipment data.data.shipment != null;
     public void testFilterSalesOrderUUID(){
     System.out.println("Start of testFilterSalesOrderUUID~2");
         XtupleRestClient client = new XtupleRestClient();
@@ -138,7 +143,7 @@ public class XtupleRestClientTest
         try{
             //pick first Sales Order UUID && Send in a Result
             //sample UUID = f936ef4b-bd0a-44ab-ce94-7f120ffbb53a
-            String output = client.ParseSalesOrder(result);
+            String output = client.ParseIssueToShipping(result);
             //client.FilterSalesOrderUUID()
             //System.out.println(output);
             //issuetoshipping vs shipped
@@ -148,6 +153,7 @@ public class XtupleRestClientTest
          }
     System.out.println("End of of testFilterSalesOrderUUID~2");
     }
+    //issue a issueToShipping IF a barcode is matched
     /**
      * Rigourous Test :-)
      */

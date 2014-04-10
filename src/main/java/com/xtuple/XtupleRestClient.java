@@ -40,13 +40,17 @@ public String ParseIssueToShipping(String input) throws IOException{
 			{
 			 JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
 			 JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
-			 String number = order.getString("number");
+             //name
+             String name = itemSite.getString("number");
+                //System.out.println("@@@"+number);
+			 //String number = order.getString("number");
 			    //System.out.println("@@@"+number);
 			 String barcode = itemSite.getString("barcode").toString();
 			    //System.out.println("@@@"+barcode);
 			 String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
 			    //System.out.println("@@@"+description);
-			 result = number + " " + barcode + " " + description;
+			 result = name + "," + barcode + "," + description;
+             System.out.println(result);
 			}
 		 }//end of try
 		catch (JSONException e) {
@@ -174,4 +178,35 @@ public String ParseSalesOrder(String input) throws IOException{
             }
             return result;
     }
-}
+
+public String ParseIssueToShippingShippingID(String input) throws IOException{
+       // String input = "";
+     String result = "";
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
+             JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
+             JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+             //name
+             String name = itemSite.getString("number");
+                //System.out.println("@@@"+number);
+             //String number = order.getString("number");
+                //System.out.println("@@@"+number);
+             String barcode = itemSite.getString("barcode").toString();
+                //System.out.println("@@@"+barcode);
+             result = name + "," + barcode ;
+             System.out.println(result);
+            }
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+
+            return result;
+    }//end of parseSalesOrder method
+} // end of class
