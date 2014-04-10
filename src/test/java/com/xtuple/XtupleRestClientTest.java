@@ -29,6 +29,7 @@ public class XtupleRestClientTest
         XtupleRestClient client = new XtupleRestClient();
         String result = client.readFile("data/IssueToShipping.json");
     }
+    //change testname
     public void testParseIssueToShipping(){
         XtupleRestClient client = new XtupleRestClient();
         String result = client.readFile("data/IssueToShipping.json");
@@ -132,18 +133,18 @@ public class XtupleRestClientTest
     */
     //Shipment ID number where
     // - ordered != shipped &&
-    // - shipment data.data.shipment != null;
-    public void testFilterSalesOrderUUID(){
-    System.out.println("Start of testFilterSalesOrderUUID~2");
+    // - shipment data.data.shipment != null; (all of these absorb same shipment info...?)
+    public void testIssuable(){
+    System.out.println("Start of testIssuable~2");
         XtupleRestClient client = new XtupleRestClient();
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=P
         //tell it which one to parse for example parse for all
         //example return from activty query
-        String result = client.readFile("data/workflow/attributes[order.uuid]2.json");
+        String result = client.readFile("data/workflow/attributes[order.uuid]mixed.json");
         try{
             //pick first Sales Order UUID && Send in a Result
             //sample UUID = f936ef4b-bd0a-44ab-ce94-7f120ffbb53a
-            String output = client.ParseIssueToShippingShippable(result);
+            String output = client.getIssueToShippingAtShipping(result);
             //client.FilterSalesOrderUUID()
             //System.out.println(output);
             //issuetoshipping vs shipped
@@ -151,7 +152,7 @@ public class XtupleRestClientTest
         catch (Exception e){
              e.printStackTrace();
          }
-    System.out.println("End of of testFilterSalesOrderUUID~2");
+    System.out.println("End of of testIssuable~2");
     }
     //issue a issueToShipping IF a barcode is matched
     /**
