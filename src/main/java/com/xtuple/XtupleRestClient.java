@@ -212,5 +212,40 @@ public String getIssueToShippingAtShipping(String input) throws IOException{
         }
 
             return result;
-    }//end of parseSalesOrder method
+    }
+//get issuable line items
+public String getIssuetoShippingShipmentNumber(String input) throws IOException{
+       // String input = "";
+     String result = "";
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
+             int atShipping = Integer.parseInt(dataDeeper.getJSONObject(i).getString("atShipping"));
+             int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
+             //if (!shipment.equals(JSONObject.NULL)){
+             //objects i want issuable
+             if(ordered==atShipping){
+                 System.out.println(atShipping);
+                 System.out.println(ordered);
+                shipment = dataDeeper.getJSONObject(i).getJSONObject("shipment").getString("number");
+                 JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+                 String barcode = itemSite.getString("barcode").toString();
+
+                 result = shipment;
+                 System.out.println(result);
+               // }
+                }
+            }
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+
+            return result;
+    }
 } // end of class
