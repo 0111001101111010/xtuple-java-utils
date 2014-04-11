@@ -180,6 +180,9 @@ public String ParseSalesOrder(String input) throws IOException{
     }
 
 //get issuable line items
+    //request like..
+    //https://192.168.33.10:8443/inventory/api/v1alpha1/resources/issue-to-shipping?attributes[order.uuid][EQUALS]=X
+    //where UUID = one of activity
 public String getIssueToShippingAtShipping(String input) throws IOException{
        // String input = "";
      String result = "";
@@ -214,6 +217,7 @@ public String getIssueToShippingAtShipping(String input) throws IOException{
             return result;
     }
 //get issuable line items
+    //THIS SHOULD BE CHECKED BASED OFF OF THE ACTIVITYTYPE SHIPACTIVITY
 public String getIssuetoShippingShipmentNumber(String input) throws IOException{
        // String input = "";
      String result = "";
@@ -234,7 +238,7 @@ public String getIssuetoShippingShipmentNumber(String input) throws IOException{
                 shipment = dataDeeper.getJSONObject(i).getJSONObject("shipment").getString("number");
                  JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
                  String barcode = itemSite.getString("barcode").toString();
-
+                    //System.out.println("@@@"+barcode);
                  result = shipment;
                  System.out.println(result);
                // }
@@ -248,4 +252,7 @@ public String getIssuetoShippingShipmentNumber(String input) throws IOException{
 
             return result;
     }
+//DISPATCH FUNCTIONS FIND IN ANDROID
+   //dispatchShipShipment
+   //dispatchIssueShipping
 } // end of class
