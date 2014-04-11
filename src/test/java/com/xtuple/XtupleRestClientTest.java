@@ -113,13 +113,29 @@ public class XtupleRestClientTest
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/workflow/activityTypeSalesOrderWorkflow.json");
         try{
-            String output = client.ParseSalesOrderWorkflow(result, "PackWorkflow");
+            String output = client.ParseSalesOrderWorkflow(result);
             System.out.println(output);
         }
         catch (Exception e){
              e.printStackTrace();
          }
         System.out.println("End of testActivitySalesOrderWorkflowP~1");
+    }
+    //#Done before hand.. wait what. Server..?
+    //test for activityType Step 1
+    public void testActivitySalesOrderWorkflowActivityTypeOnType(){
+        System.out.println("Start of testActivitySalesOrderWorkflow~OnActivityOnType~1");
+        XtupleRestClient client = new XtupleRestClient();
+        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
+        String result = client.readFile("data/workflow/activityTypeSalesOrderWorkflow.json");
+        try{
+            String output = client.ParseSalesOrderWorkflow(result, "PackWorkflow");
+            System.out.println(output);
+        }
+        catch (Exception e){
+             e.printStackTrace();
+         }
+        System.out.println("testActivitySalesOrderWorkflow~OnActivityOnType~1");
     }
     //Fire off a request based off the UUID and return the result. This is one issue to shipping object
 
