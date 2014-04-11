@@ -4,6 +4,22 @@ import java.io.*;
 import org.json.*;
 import java.util.*;
 
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.StatusLine;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
 public class XtupleRestClient{
 
 static String readFile(String filename){
@@ -66,7 +82,7 @@ public String ParseIssueToShipping(String input) throws IOException{
 * Parse Sales Order
 * Return Returns the UUID of Pending Sales Orders
 */
-public String ParseSalesOrderWorkflow(String input) throws IOException{
+public String ParseSalesOrderWorkflowActivity(String input) throws IOException{
         String result ="";
         //Parse Sales Order Object
         try {
@@ -92,7 +108,7 @@ public String ParseSalesOrderWorkflow(String input) throws IOException{
 * Parse Sales Order workflow, on specific ActivityType
 * Return Returns the UUID of Pending Sales Orders of Activty type
 */
-public String ParseSalesOrderWorkflow(String input, String type) throws IOException{
+public String ParseSalesOrderWorkflowActivity(String input, String type) throws IOException{
         String result ="";
         //Parse Sales Order Object
         try {
@@ -197,7 +213,7 @@ public String getIssueToShippingAtShipping(String input) throws IOException{
              int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
              //if (!shipment.equals(JSONObject.NULL)){
              //objects i want issuable
-             if(ordered!=atShipping){
+             if(ordered<atShipping){
                  System.out.println(atShipping);
                  System.out.println(ordered);
                  JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
@@ -255,4 +271,81 @@ public String getIssuetoShippingShipmentNumber(String input) throws IOException{
 //DISPATCH FUNCTIONS FIND IN ANDROID
    //dispatchShipShipment
    //dispatchIssueShipping
+//isShippable?
+//get issuable line items
+    //THIS SHOULD BE CHECKED BASED OFF OF THE ACTIVITYTYPE SHIPACTIVITY
+public String isShippable(String input) throws IOException{
+     String result = "";
+     ArrayList<String> check = new ArrayList();
+        //Parse Sales Order Object
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            //one level deeper
+            JSONArray dataDeeper = data.getJSONArray("data");
+                for(int i=0;i<dataDeeper.length();i++){
+            //#Debug
+            String workflow = dataDeeper.getJSONObject(i).getString("name");
+            String orderNumber = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("name");
+            String workflowStatus = dataDeeper.getJSONObject(i).getString("status");
+            System.out.println(workflow+orderNumber+workflowStatus);
+                   if (workflow.equals("PackWorkflow") && workflowStatus.equals("C")){
+                        check.add(orderNumber);
+                   }
+                   else if (workflow.equals("ShipWorkflow") && !workflowStatus.equals("C")){
+                         if(check.contains(orderNumber)){
+                            result = orderNumber + "," + result;
+                         }
+                   }
+               }// end of for
+            } //end of try
+         catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+        // TADA the orders you want to ship
+        //System.out.println(result);
+        return result;
+    }
+//post
+     public String Post(String... params){
+      HashMap<String, String> mData = null;// post data
+      String words = "xtuple";
+
+        byte[] result = null;
+        String str = "";
+        //first try
+        try {
+        HttpClient client = new DefaultHttpClient();
+        HttpPost post = new HttpPost(params[0]);// in this case, params[0] is URL
+
+            try {
+                // set up post data
+                ArrayList<NameValuePair> nameValuePair = new ArrayList<NameValuePair>();
+                Iterator<String> it = mData.keySet().iterator();
+                while (it.hasNext()) {
+                    String key = it.next();
+                    nameValuePair.add(new BasicNameValuePair(key, mData.get(key)));
+                }
+
+                post.setEntity(new UrlEncodedFormEntity(nameValuePair, "UTF-8"));
+                HttpResponse response = client.execute(post);
+                StatusLine statusLine = response.getStatusLine();
+                if(statusLine.getStatusCode() == HttpURLConnection.HTTP_OK){
+                    result = EntityUtils.toByteArray(response.getEntity());
+                    str = new String(result, "UTF-8");
+                    words = str;
+                }
+            }
+            catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            catch (Exception e) {
+            }
+        } //inner try end
+        catch (Exception e){
+
+        }// end of large try catch
+        return str;
+     }
 } // end of class
