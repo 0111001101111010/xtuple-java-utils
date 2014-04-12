@@ -186,6 +186,20 @@ public class XtupleRestClientTest
          }
     System.out.println("End of of testShippable~2");
     }
+    //test Dispatch
+    public void testDispatchShipShipment(){
+    System.out.println("Start of dispatchShipShipment~2");
+        HashMap<String, String> info = new HashMap<String, String>();
+        Post asyncHttpPost = new Post(info);
+        //#Work
+        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //#Home 192.168.33.1
+        asyncHttpPost.execute("http://192.168.33.1:8081/orders");
+        String words = asyncHttpPost.getWords();
+        System.out.println(words);
+        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+    System.out.println("End of dispatchShipShipment~2");
+    }
     //issue a issueToShipping IF a barcode is matched
     /**
      * Rigourous Test :-)
