@@ -34,7 +34,12 @@ public class Post{
     /**
      * background
      */
-
+    // Alias
+    // Fake Functions
+    protected String doInBackground (String... params) {
+        String str = execute(params);
+        return str;
+    }
     protected String execute(String... params) {
         byte[] result = null;
         String str = "";
