@@ -174,7 +174,10 @@ public class XtupleRestClientTest
         try{
             //pick first Sales Order UUID && Send in a Result
             //sample UUID = f936ef4b-bd0a-44ab-ce94-7f120ffbb53a
-            String output = client.getIssueToShippingAtShipping(result);
+            List<String> items = client.getIssueToShippingAtShipping(result);
+            for (String i: items){
+                System.out.println(i);
+            }
             //client.FilterSalesOrderUUID()
             //System.out.println(output);
             //issuetoshipping vs shipped
@@ -246,16 +249,22 @@ public class XtupleRestClientTest
         String words = asyncHttpPost.getWords();
         //System.out.println(words);
         XtupleRestClient client = new XtupleRestClient();
-        try{
-            List<String> items  = client.ParseIssueToShipping(words);
-            //System.out.println(output);
-            for (String i: items){
-                System.out.println(i);
+        if (!words.equals("No Issuable Items!")){
+            try{
+                List<String> items  = client.getIssueToShippingAtShipping(words);
+                //System.out.println(output);
+                for (String i: items){
+                    System.out.println(i);
+                }
             }
-        }
-        catch (Exception e){
-             e.printStackTrace();
+            catch (Exception e){
+                 e.printStackTrace();
+             }
          }
+         else{
+            System.out.println("No Issuable Items!");
+         }
+        //pick first hypothetically.
         //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testGlassAppFlow");
     }

@@ -189,9 +189,10 @@ public String ParseSalesOrder(String input) throws IOException{
     //request like..
     //https://192.168.33.10:8443/inventory/api/v1alpha1/resources/issue-to-shipping?attributes[order.uuid][EQUALS]=X
     //where UUID = one of activity
-public String getIssueToShippingAtShipping(String input) throws IOException{
+public static List<String> getIssueToShippingAtShipping(String input) throws IOException{
        // String input = "";
-     String result = "";
+     //String result = "";
+        List<String> result = new ArrayList();
         try {
             JSONObject jsonObj = new JSONObject(input);
             JSONObject data = jsonObj.getJSONObject("data");
@@ -203,14 +204,15 @@ public String getIssueToShippingAtShipping(String input) throws IOException{
              int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
              //if (!shipment.equals(JSONObject.NULL)){
              //objects i want issuable
-             if(ordered<atShipping){
-                 System.out.println(atShipping);
+                //  System.out.println(ordered);
+                // System.out.println(atShipping);
+             if(ordered>atShipping){
                  System.out.println(ordered);
+                System.out.println(atShipping);
                  JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
                  String barcode = itemSite.getString("barcode").toString();
                     //System.out.println("@@@"+barcode);
-                 result = barcode ;
-                 System.out.println(result);
+                 result.add(barcode);
                // }
                 }
             }
