@@ -268,11 +268,4 @@ public class XtupleRestClientTest
         //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testGlassAppFlow");
     }
-    /**
-     * Rigourous Test :-)
-     */
-    // public void testApp()
-    // {
-    //     assertTrue( true );
-    // }
 }
