@@ -49,8 +49,9 @@ public String ParseIssueToShipping(String input) throws IOException{
 			    //System.out.println("@@@"+barcode);
 			 String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
 			    //System.out.println("@@@"+description);
-			 result = name + "," + barcode + "," + description;
-             System.out.println(result);
+			 String card = name + " " + barcode + " " + description;
+             //System.out.println(result);
+             result = card + "," + result;
 			}
 		 }//end of try
 		catch (JSONException e) {
@@ -142,6 +143,7 @@ public String ParseSalesOrderWorkflowActivity(String input, String type) throws 
 /*
 *
 * Parsed Sales Order, Serialized Items
+* //unused method?
 */
 public String ParseSalesOrder(String input) throws IOException{
         String result ="";
@@ -160,16 +162,16 @@ public String ParseSalesOrder(String input) throws IOException{
                     //Barcode of item
                      JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
                      String barcode = itemSite.getString("barcode");
-                        System.out.println("@@@"+barcode);
+                        //System.out.println("@@@"+barcode);
                     //Name of item
                      String itemNumber = itemSite.getString("number");
-                        System.out.println("@@@"+itemNumber);
+                        //System.out.println("@@@"+itemNumber);
                     //item description1
                      String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
-                    System.out.println("@@@"+description);
+                    //System.out.println("@@@"+description);
                     //quantity
                      String quantity = dataDeeper.getJSONObject(i).getString("ordered");
-                    System.out.println("@@@Quantity:"+quantity);
+                    //System.out.println("@@@Quantity:"+quantity);
                 }
             }
              catch (JSONException e) {
