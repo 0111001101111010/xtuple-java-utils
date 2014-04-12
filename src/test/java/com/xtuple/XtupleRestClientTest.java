@@ -186,19 +186,36 @@ public class XtupleRestClientTest
          }
     System.out.println("End of of testShippable~2");
     }
-    //test Dispatch
-    public void testDispatchShipShipment(){
-    System.out.println("Start of dispatchShipShipment~2");
+    //test DispatchIssue
+    public void testIssueOrder(){
+    System.out.println("Start of testIssueOrder~2");
         HashMap<String, String> info = new HashMap<String, String>();
+        info.put("uuid", "0e6fd01e-7dd2-41f0-dd0e-6cad09078fb3");
+        info.put("quantity", "1");
         Post asyncHttpPost = new Post(info);
         //#Work
         //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
         //#Home 192.168.33.1
-        asyncHttpPost.execute("http://192.168.33.1:8081/orders");
+        asyncHttpPost.execute("http://192.168.33.1:8081/dispatchIssue");
         String words = asyncHttpPost.getWords();
         System.out.println(words);
         //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
-    System.out.println("End of dispatchShipShipment~2");
+    System.out.println("End of testIssueOrder~2");
+    }
+    //test DispatchShipment
+    public void testIssueShipment(){
+    System.out.println("Start of IssueShipment~2");
+        HashMap<String, String> info = new HashMap<String, String>();
+        info.put("shipID", "65012");
+        Post asyncHttpPost = new Post(info);
+        //#Work
+        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //#Home 192.168.33.1
+        asyncHttpPost.execute("http://192.168.33.1:8081/dispatchShip");
+        String words = asyncHttpPost.getWords();
+        System.out.println(words);
+        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+    System.out.println("End of IssueShipment~2");
     }
     //issue a issueToShipping IF a barcode is matched
     /**
