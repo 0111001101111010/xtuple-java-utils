@@ -206,7 +206,7 @@ public class XtupleRestClientTest
     public void testDispatchShipment(){
     System.out.println("Start of testDispatchShipment~2");
         HashMap<String, String> info = new HashMap<String, String>();
-        info.put("shipID", "60176");
+        info.put("shipID", "60175");
         Post asyncHttpPost = new Post(info);
         //#Work
         //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
@@ -217,7 +217,31 @@ public class XtupleRestClientTest
         //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testDispatchShipment~2");
     }
-    //issue a issueToShipping IF a barcode is matched
+
+    //Pratice GlassfloW
+    public void testGlassAppFlow(){
+    System.out.println("Start of testGlassAppFlow");
+        //
+        HashMap<String, String> info = new HashMap<String, String>();
+        //have to pass something whether its null or something
+        Post asyncHttpPost = new Post(info);
+        //#Work
+        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //#Home 192.168.33.1
+        asyncHttpPost.execute("http://localhost:8081/packworkflow");
+        String words = asyncHttpPost.getWords();
+        //System.out.println(words);
+        XtupleRestClient client = new XtupleRestClient();
+        try{
+            String output = client.ParseIssueToShipping(words);
+            System.out.println(output);
+        }
+        catch (Exception e){
+             e.printStackTrace();
+         }
+        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+    System.out.println("End of testGlassAppFlow");
+    }
     /**
      * Rigourous Test :-)
      */
