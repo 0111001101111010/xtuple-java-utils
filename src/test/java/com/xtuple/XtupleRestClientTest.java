@@ -33,10 +33,14 @@ public class XtupleRestClientTest
     public void testParseIssueToShipping(){
         XtupleRestClient client = new XtupleRestClient();
         String result = client.readFile("data/IssueToShipping.json");
+
         //System.out.println(result);
         try{
-            String output = client.ParseIssueToShipping(result);
-            System.out.println(output);
+        List<String> items = client.ParseIssueToShipping(result);
+            for (String i: items){
+                System.out.println(i);
+            }
+            //System.out.println(output);
         }
         catch (Exception e){
              e.printStackTrace();
@@ -49,8 +53,11 @@ public class XtupleRestClientTest
         //https://192.168.33.10:8443/inventory/api/v1alpha1/ActivityListItem?attributes[activityType][EQUALS]=SalesOrderWorkflow
         String result = client.readFile("data/activityTypeSalesOrderWorkflow.json");
         try{
-            String output = client.ParseSalesOrderWorkflowActivity(result);
-            System.out.println(output);
+            List<String> items  = client.ParseSalesOrderWorkflowActivity(result);
+            //System.out.println(output);
+            for (String i: items){
+                System.out.println(i);
+            }
         }
         catch (Exception e){
              e.printStackTrace();
@@ -64,8 +71,11 @@ public class XtupleRestClientTest
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/activityTypeSalesOrderWorkflowI.json");
         try{
-            String output = client.ParseSalesOrderWorkflowActivity(result);
-            System.out.println(output);
+            List<String> items  = client.ParseSalesOrderWorkflowActivity(result);
+            //System.out.println(output);
+            for (String i: items){
+                System.out.println(i);
+            }
         }
         catch (Exception e){
              e.printStackTrace();
@@ -78,8 +88,11 @@ public class XtupleRestClientTest
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/activityTypeSalesOrderWorkflowP.json");
         try{
-            String output = client.ParseSalesOrderWorkflowActivity(result);
-            System.out.println(output);
+            List<String> items  = client.ParseSalesOrderWorkflowActivity(result);
+            //System.out.println(output);
+            for (String i: items){
+                System.out.println(i);
+            }
         }
         catch (Exception e){
              e.printStackTrace();
@@ -92,12 +105,10 @@ public class XtupleRestClientTest
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/activityTypeSalesOrderWorkflowP2.json");
         try{
-            String output = client.ParseSalesOrderWorkflowActivity(result);
-            System.out.println(output);
-            List<String> items = XtupleRestClient.SplitCommaString(output);
-            //DEBUG, Returns the UUID items in list
-            for(String s: items){
-                System.out.println(s);
+            List<String> items  = client.ParseSalesOrderWorkflowActivity(result);
+            //System.out.println(output);
+            for (String i: items){
+                System.out.println(i);
             }
         }
         catch (Exception e){
@@ -113,8 +124,11 @@ public class XtupleRestClientTest
         //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=I
         String result = client.readFile("data/workflow/activityTypeSalesOrderWorkflow.json");
         try{
-            String output = client.ParseSalesOrderWorkflowActivity(result);
-            System.out.println(output);
+            List<String> items  = client.ParseSalesOrderWorkflowActivity(result);
+            //System.out.println(output);
+            for (String i: items){
+                System.out.println(i);
+            }
         }
         catch (Exception e){
              e.printStackTrace();
@@ -233,8 +247,11 @@ public class XtupleRestClientTest
         //System.out.println(words);
         XtupleRestClient client = new XtupleRestClient();
         try{
-            String output = client.ParseIssueToShipping(words);
-            System.out.println(output);
+            List<String> items  = client.ParseIssueToShipping(words);
+            //System.out.println(output);
+            for (String i: items){
+                System.out.println(i);
+            }
         }
         catch (Exception e){
              e.printStackTrace();

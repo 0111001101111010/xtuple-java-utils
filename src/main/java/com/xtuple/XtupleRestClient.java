@@ -29,9 +29,10 @@ static String readFile(String filename){
     * Returns Pending Ids of the Immediate Sales Order
     * #should return actually an array?
     */
-public String ParseIssueToShipping(String input) throws IOException{
-       // String input = "";
-     String result = "";
+public static List<String> ParseIssueToShipping(String input) throws IOException{
+     // String input = "";
+     //String result = "";
+     List<String> result = new ArrayList();
 	    try {
 		    JSONObject jsonObj = new JSONObject(input);
 			JSONObject data = jsonObj.getJSONObject("data");
@@ -51,7 +52,8 @@ public String ParseIssueToShipping(String input) throws IOException{
 			    //System.out.println("@@@"+description);
 			 String card = name + " " + barcode + " " + description;
              //System.out.println(result);
-             result = card + "," + result;
+             //result = card + "," + result;
+             result.add(card);
 			}
 		 }//end of try
 		catch (JSONException e) {
@@ -67,9 +69,10 @@ public String ParseIssueToShipping(String input) throws IOException{
 * Parse Sales Order
 * Return Returns the UUID of Pending Sales Orders
 */
-public String ParseSalesOrderWorkflowActivity(String input) throws IOException{
-        String result ="";
+public static List<String> ParseSalesOrderWorkflowActivity(String input) throws IOException{
+        //String result ="";
         //Parse Sales Order Object
+        List<String> result = new ArrayList();
         try {
             JSONObject jsonObj = new JSONObject(input);
 	        JSONObject data = jsonObj.getJSONObject("data");
@@ -79,7 +82,8 @@ public String ParseSalesOrderWorkflowActivity(String input) throws IOException{
 		            //System.out.println("@@@" +i+"");
 			        //System.out.println("@@@"+dataDeeper.getJSONObject(i).toString());
 			        String uuid = dataDeeper.getJSONObject(i).getJSONObject("parent").getString("uuid");
-			        result = uuid +  "," + result;
+			        //result = uuid +  "," + result;
+                    result.add(uuid);
 		    }
             }
          catch (JSONException e) {
