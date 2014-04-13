@@ -21,13 +21,13 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 //needs to inherit  extends AsyncTask<String, String, String>
-public class Post{
+public class Request{
     private HashMap<String, String> mData = null;// post data
     public String words = "xtuple";
     /**
      * constructor
      */
-    public Post(HashMap<String, String> data) {
+    public Request(HashMap<String, String> data) {
         mData = data;
     }
 

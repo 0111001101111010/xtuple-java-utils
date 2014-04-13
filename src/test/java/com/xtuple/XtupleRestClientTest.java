@@ -212,14 +212,14 @@ public class XtupleRestClientTest
         HashMap<String, String> info = new HashMap<String, String>();
         info.put("uuid", "0e6fd01e-7dd2-41f0-dd0e-6cad09078fb3");
         info.put("quantity", "1");
-        Post asyncHttpPost = new Post(info);
+        Request asyncHttpRequest = new Request(info);
         //#Work
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
         //#Home 192.168.33.1
-        asyncHttpPost.execute("http://192.168.33.1:8081/dispatchIssue");
-        String words = asyncHttpPost.getWords();
+        asyncHttpRequest.execute("http://192.168.33.1:8081/dispatchIssue");
+        String words = asyncHttpRequest.getWords();
         System.out.println(words);
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testDispatchIssueToShipping~2");
     }
     //test DispatchShipment
@@ -227,14 +227,14 @@ public class XtupleRestClientTest
     System.out.println("Start of testDispatchShipment~2");
         HashMap<String, String> info = new HashMap<String, String>();
         info.put("shipID", "60175");
-        Post asyncHttpPost = new Post(info);
+        Request asyncHttpRequest = new Request(info);
         //#Work
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
         //#Home 192.168.33.1
-        asyncHttpPost.execute("http://192.168.33.1:8081/dispatchShip");
-        String words = asyncHttpPost.getWords();
+        asyncHttpRequest.execute("http://192.168.33.1:8081/dispatchShip");
+        String words = asyncHttpRequest.getWords();
         System.out.println(words);
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testDispatchShipment~2");
     }
 
@@ -245,12 +245,12 @@ public class XtupleRestClientTest
         //
         HashMap<String, String> info = new HashMap<String, String>();
         //have to pass something whether its null or something
-        Post asyncHttpPost = new Post(info);
+        Request asyncHttpRequest = new Request(info);
         //#Work
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
         //#Home 192.168.33.1
-        asyncHttpPost.execute("http://localhost:8081/packworkflow");
-        String words = asyncHttpPost.getWords();
+        asyncHttpRequest.execute("http://localhost:8081/packworkflow");
+        String words = asyncHttpRequest.getWords();
         //System.out.println(words);
         XtupleRestClient client = new XtupleRestClient();
         if (!words.equals("No Issuable Items!")){
@@ -269,7 +269,7 @@ public class XtupleRestClientTest
             System.out.println("No Issuable Items!");
          }
         //pick first hypothetically.
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testGlassAppFlow");
     }
 
@@ -279,12 +279,12 @@ public class XtupleRestClientTest
         //
         HashMap<String, String> info = new HashMap<String, String>();
         //have to pass something whether its null or something
-        Post asyncHttpPost = new Post(info);
+        Request asyncHttpRequest = new Request(info);
         //#Work
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
         //#Home 192.168.33.1
-        asyncHttpPost.execute("http://localhost:8081/packworkflow");
-        String words = asyncHttpPost.getWords();
+        asyncHttpRequest.execute("http://localhost:8081/packworkflow");
+        String words = asyncHttpRequest.getWords();
         //System.out.println(words);
         XtupleRestClient client = new XtupleRestClient();
         if (!words.equals("No Issuable Items!")){
@@ -307,9 +307,9 @@ public class XtupleRestClientTest
                   HashMap<String, String> params = new HashMap<String, String>();
                     params.put("uuid", result);
                     params.put("quantity", "1");
-                    Post dispatchIssue = new Post(params);
+                    Request dispatchIssue = new Request(params);
                     //#Work
-                    //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+                    //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
                     //#Home 192.168.33.1
                     dispatchIssue.execute("http://192.168.33.1:8081/dispatchIssue");
                     String foo = dispatchIssue.getWords();
@@ -326,7 +326,7 @@ public class XtupleRestClientTest
             System.out.println("No Issuable Items!");
          }
         //pick first hypothetically.
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testGlassAppFlowMatch");
     }
 
@@ -338,12 +338,12 @@ public class XtupleRestClientTest
         //
         HashMap<String, String> info = new HashMap<String, String>();
         //have to pass something whether its null or something
-        Post asyncHttpPost = new Post(info);
+        Request asyncHttpRequest = new Request(info);
         //#Work
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
         //#Home 192.168.33.1
-        asyncHttpPost.execute("http://localhost:8081/shipworkflow");
-        String words = asyncHttpPost.getWords();
+        asyncHttpRequest.execute("http://localhost:8081/shipworkflow");
+        String words = asyncHttpRequest.getWords();
         //System.out.println(words);
         XtupleRestClient client = new XtupleRestClient();
         if (!words.equals("No Shippable Items!")){
@@ -359,9 +359,9 @@ public class XtupleRestClientTest
                 String result = items.get(0);
                   HashMap<String, String> params = new HashMap<String, String>();
                     params.put("shipID", result);
-                    Post dispatchIssue = new Post(params);
+                    Request dispatchIssue = new Request(params);
                     //#Work
-                    //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+                    //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
                     //#Home 192.168.33.1
                     dispatchIssue.execute("http://192.168.33.1:8081/dispatchShip");
                     String foo = dispatchIssue.getWords();
@@ -375,7 +375,7 @@ public class XtupleRestClientTest
             System.out.println("No Shippable Items!");
          }
         //pick first hypothetically.
-        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testGlassFlowDispatch");
     }
 }
