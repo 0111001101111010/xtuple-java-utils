@@ -20,7 +20,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-
+//needs to inherit  extends AsyncTask<String, String, String>
 public class Post{
     private HashMap<String, String> mData = null;// post data
     public String words = "xtuple";
