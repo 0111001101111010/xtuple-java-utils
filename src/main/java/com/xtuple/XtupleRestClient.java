@@ -224,9 +224,9 @@ public static List<String> getIssueToShippingAtShipping(String input) throws IOE
     }
 //get issuable line items
     //THIS SHOULD BE CHECKED BASED OFF OF THE ACTIVITYTYPE SHIPACTIVITY
-public String getIssuetoShippingShipmentNumber(String input) throws IOException{
+public static List<String> getIssuetoShippingShipmentNumber(String input) throws IOException{
        // String input = "";
-     String result = "";
+        List<String> result = new ArrayList();
         try {
             JSONObject jsonObj = new JSONObject(input);
             JSONObject data = jsonObj.getJSONObject("data");
@@ -238,14 +238,15 @@ public String getIssuetoShippingShipmentNumber(String input) throws IOException{
              int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
 
              if(ordered==atShipping){
-                 System.out.println(atShipping);
-                 System.out.println(ordered);
+                 // System.out.println(atShipping);
+                 // System.out.println(ordered);
                 shipment = dataDeeper.getJSONObject(i).getJSONObject("shipment").getString("number");
                  JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
                  String barcode = itemSite.getString("barcode").toString();
                     //System.out.println("@@@"+barcode);
-                 result = shipment;
-                 System.out.println(result);
+                 result.add(shipment);
+                 //result = shipment;
+                 //System.out.println(result);
                // }
                 }
             }
@@ -261,10 +262,11 @@ public String getIssuetoShippingShipmentNumber(String input) throws IOException{
    //dispatchShipShipment
    //dispatchIssueShipping
 //isShippable?
-//get issuable line items
+//get shippable line items
     //THIS SHOULD BE CHECKED BASED OFF OF THE ACTIVITYTYPE SHIPACTIVITY
-public String isShippable(String input) throws IOException{
-     String result = "";
+public static List<String> isShippable(String input) throws IOException{
+     //String result = "";
+     ArrayList<String> result = new ArrayList();
      ArrayList<String> check = new ArrayList();
         //Parse Sales Order Object
         try {
@@ -283,7 +285,8 @@ public String isShippable(String input) throws IOException{
                    }
                    else if (workflow.equals("ShipWorkflow") && !workflowStatus.equals("C")){
                          if(check.contains(orderNumber)){
-                            result = orderNumber + "," + result;
+                            //result = orderNumber + "," + result;
+                            result.add(orderNumber);
                          }
                    }
                }// end of for
