@@ -252,10 +252,10 @@ public class XtupleRestClientTest
         if (!words.equals("No Issuable Items!")){
             try{
                 List<String> items  = client.getIssueToShippingAtShipping(words);
-                //System.out.println(output);
-                for (String i: items){
-                    System.out.println(i);
-                }
+                //Debugging
+                // for (String i: items){
+                //     System.out.println(i);
+                // } //get items
             }
             catch (Exception e){
                  e.printStackTrace();
@@ -267,5 +267,46 @@ public class XtupleRestClientTest
         //pick first hypothetically.
         //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testGlassAppFlow");
+    }
+
+    //Pratice GlassfloW
+    public void testGlassAppFlowMatch(){
+    System.out.println("Start of testGlassAppFlowMatch");
+        //
+        HashMap<String, String> info = new HashMap<String, String>();
+        //have to pass something whether its null or something
+        Post asyncHttpPost = new Post(info);
+        //#Work
+        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+        //#Home 192.168.33.1
+        asyncHttpPost.execute("http://localhost:8081/packworkflow");
+        String words = asyncHttpPost.getWords();
+        //System.out.println(words);
+        XtupleRestClient client = new XtupleRestClient();
+        if (!words.equals("No Issuable Items!")){
+            try{
+                //line items
+                List<String> items  = client.getIssueToShippingAtShipping(words);
+                //orderIDs?
+
+                //Debugging
+                // for (String i: items){
+                //     System.out.println(i);
+                // } //get items
+
+                //IF PRESENT RETURN ISSUE THE ATTACHED ORDER NUMBER?
+                System.out.println(client.onPacklist(words,"1234-4567"));
+                System.out.println(client.onPacklist(words,"1234"));
+            }
+            catch (Exception e){
+                 e.printStackTrace();
+             }
+         }
+         else{
+            System.out.println("No Issuable Items!");
+         }
+        //pick first hypothetically.
+        //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+    System.out.println("End of testGlassAppFlowMatch");
     }
 }

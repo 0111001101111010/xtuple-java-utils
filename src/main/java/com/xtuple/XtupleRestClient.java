@@ -296,4 +296,41 @@ public String isShippable(String input) throws IOException{
         //System.out.println(result);
         return result;
     }
+//isOnMyPackList
+//get issuable line items
+    //request like..
+    //https://192.168.33.10:8443/inventory/api/v1alpha1/resources/issue-to-shipping?attributes[order.uuid][EQUALS]=X
+    //where UUID = one of activity
+    //pass in your UUID match
+public static String onPacklist(String input, String match) throws IOException{
+
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
+             int atShipping = Integer.parseInt(dataDeeper.getJSONObject(i).getString("atShipping"));
+             int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
+             JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+             String name = itemSite.getString("number");
+             String barcode = itemSite.getString("barcode").toString();
+             String orderNumber = dataDeeper.getJSONObject(i).getJSONObject("order").getString("uuid");
+             //ensure issuable
+             if(ordered>atShipping){
+                //barcode match
+                 if(barcode.equals(match))
+                    //return orderID
+                    return orderNumber;
+                }
+            }
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+            //return nothing
+            return "NOPE";
+    }
 } // end of class
