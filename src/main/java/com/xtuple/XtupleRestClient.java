@@ -41,15 +41,9 @@ public static List<String> ParseIssueToShipping(String input) throws IOException
 			{
 			 JSONObject order = dataDeeper.getJSONObject(i).getJSONObject("order");
 			 JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
-             //name
              String name = itemSite.getString("number");
-                //System.out.println("@@@"+number);
-			 //String number = order.getString("number");
-			    //System.out.println("@@@"+number);
 			 String barcode = itemSite.getString("barcode").toString();
-			    //System.out.println("@@@"+barcode);
 			 String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
-			    //System.out.println("@@@"+description);
 			 String card = name + " " + barcode + " " + description;
              //System.out.println(result);
              //result = card + "," + result;
@@ -202,15 +196,19 @@ public static List<String> getIssueToShippingAtShipping(String input) throws IOE
              String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
              int atShipping = Integer.parseInt(dataDeeper.getJSONObject(i).getString("atShipping"));
              int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
-             //if (!shipment.equals(JSONObject.NULL)){
-             //objects i want issuable
-                //  System.out.println(ordered);
-                // System.out.println(atShipping);
+
              if(ordered>atShipping){
-                 System.out.println(ordered);
-                System.out.println(atShipping);
-                 JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
-                 String barcode = itemSite.getString("barcode").toString();
+                 // System.out.println(ordered);
+                 // System.out.println(atShipping);
+             //description adding
+             JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+             String name = itemSite.getString("number");
+             String barcode = itemSite.getString("barcode").toString();
+             String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
+
+
+                 String card = name + " of Quant " + Integer.toString(ordered-atShipping) + " " + description;
+                 System.out.println(card);
                     //System.out.println("@@@"+barcode);
                  result.add(barcode);
                // }
@@ -238,8 +236,7 @@ public String getIssuetoShippingShipmentNumber(String input) throws IOException{
              String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
              int atShipping = Integer.parseInt(dataDeeper.getJSONObject(i).getString("atShipping"));
              int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
-             //if (!shipment.equals(JSONObject.NULL)){
-             //objects i want issuable
+
              if(ordered==atShipping){
                  System.out.println(atShipping);
                  System.out.println(ordered);
