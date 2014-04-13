@@ -316,7 +316,7 @@ public static String onPacklist(String input, String match) throws IOException{
              JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
              String name = itemSite.getString("number");
              String barcode = itemSite.getString("barcode").toString();
-             String orderNumber = dataDeeper.getJSONObject(i).getJSONObject("order").getString("uuid");
+             String orderNumber = dataDeeper.getJSONObject(i).getString("uuid");
              //ensure issuable
              if(ordered>atShipping){
                 //barcode match

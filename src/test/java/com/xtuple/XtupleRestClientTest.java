@@ -295,7 +295,23 @@ public class XtupleRestClientTest
                 // } //get items
 
                 //IF PRESENT RETURN ISSUE THE ATTACHED ORDER NUMBER?
-                System.out.println(client.onPacklist(words,"1234-4567"));
+                //ELSE RETURN NOPE
+                //Passed in second parameter is your barcode
+                String result = client.onPacklist(words,"1234-4567");
+                if (!result.equals("NOPE")){
+//Send Request
+                  HashMap<String, String> params = new HashMap<String, String>();
+                    params.put("uuid", result);
+                    params.put("quantity", "1");
+                    Post dispatchIssue = new Post(params);
+                    //#Work
+                    //asyncHttpPost.execute("http://192.168.10.53:8081/orders");
+                    //#Home 192.168.33.1
+                    dispatchIssue.execute("http://192.168.33.1:8081/dispatchIssue");
+                    String foo = dispatchIssue.getWords();
+                    System.out.println(foo);
+                }
+                //System.out.println(client.onPacklist(words,"1234-4567"));
                 System.out.println(client.onPacklist(words,"1234"));
             }
             catch (Exception e){
