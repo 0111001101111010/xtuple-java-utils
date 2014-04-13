@@ -40,6 +40,7 @@ public class Post{
         String str = execute(params);
         return str;
     }
+    //doInBackground
     protected String execute(String... params) {
         byte[] result = null;
         String str = "";
