@@ -375,7 +375,8 @@ public class XtupleRestClientTest
 
 //**testGlassFlowDispatch
     //Pratice GlassfloW
-    public void GlassFlowDispatch(){
+    //Worker would tap to confirm contents
+    public void testGlassFlowDispatch(){
     System.out.println("Start of testGlassFlowDispatch/Shippable");
         //
         HashMap<String, String> info = new HashMap<String, String>();
