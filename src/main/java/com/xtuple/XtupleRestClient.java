@@ -115,7 +115,6 @@ public String ParseSalesOrderWorkflowActivity(String input, String type) throws 
         return result;
     }
 /*
-*
 * Parse a String into an Array List
 * @param input string
 * Return Returns the Split String
@@ -126,46 +125,6 @@ public String ParseSalesOrderWorkflowActivity(String input, String type) throws 
 
         return items;
         }
-/*
-*
-* Parsed Sales Order, Serialized Items
-* //unused method?
-*/
-// public String ParseSalesOrder(String input) throws IOException{
-//         String result ="";
-//         //Parse Sales Order Object
-//         try {
-//             JSONObject jsonObj = new JSONObject(input);
-//             JSONObject data = jsonObj.getJSONObject("data");
-//             //one level deeper
-//             JSONArray dataDeeper = data.getJSONArray("data");
-//             //order information
-//             //Sales Order Number
-//              JSONObject order = dataDeeper.getJSONObject(0).getJSONObject("order");
-//              String number = order.getString("number");
-//                 System.out.println("@@@"+number);
-//                 for(int i=0;i<dataDeeper.length();i++){
-//                     //Barcode of item
-//                      JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
-//                      String barcode = itemSite.getString("barcode");
-//                         //System.out.println("@@@"+barcode);
-//                     //Name of item
-//                      String itemNumber = itemSite.getString("number");
-//                         //System.out.println("@@@"+itemNumber);
-//                     //item description1
-//                      String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
-//                     //System.out.println("@@@"+description);
-//                     //quantity
-//                      String quantity = dataDeeper.getJSONObject(i).getString("ordered");
-//                     //System.out.println("@@@Quantity:"+quantity);
-//                 }
-//             }
-//              catch (JSONException e) {
-//                     // TODO Auto-generated catch block
-//                     e.printStackTrace();
-//             }
-//             return result;
-//     }
 
 //get issuable line items
     //request like..
