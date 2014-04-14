@@ -128,56 +128,44 @@ public String ParseSalesOrderWorkflowActivity(String input, String type) throws 
         }
 /*
 *
-* Filter and print a order from UUID
-* @param input UUID string, JSON object
-* Return Return the sales order object with all line items
-*/
-        public String FilterSalesOrderUUID(String uuid, String salesOrders) throws IOException{
-        String str = uuid;
-        List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
-
-        return uuid;
-        }
-/*
-*
 * Parsed Sales Order, Serialized Items
 * //unused method?
 */
-public String ParseSalesOrder(String input) throws IOException{
-        String result ="";
-        //Parse Sales Order Object
-        try {
-            JSONObject jsonObj = new JSONObject(input);
-            JSONObject data = jsonObj.getJSONObject("data");
-            //one level deeper
-            JSONArray dataDeeper = data.getJSONArray("data");
-            //order information
-            //Sales Order Number
-             JSONObject order = dataDeeper.getJSONObject(0).getJSONObject("order");
-             String number = order.getString("number");
-                System.out.println("@@@"+number);
-                for(int i=0;i<dataDeeper.length();i++){
-                    //Barcode of item
-                     JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
-                     String barcode = itemSite.getString("barcode");
-                        //System.out.println("@@@"+barcode);
-                    //Name of item
-                     String itemNumber = itemSite.getString("number");
-                        //System.out.println("@@@"+itemNumber);
-                    //item description1
-                     String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
-                    //System.out.println("@@@"+description);
-                    //quantity
-                     String quantity = dataDeeper.getJSONObject(i).getString("ordered");
-                    //System.out.println("@@@Quantity:"+quantity);
-                }
-            }
-             catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-            }
-            return result;
-    }
+// public String ParseSalesOrder(String input) throws IOException{
+//         String result ="";
+//         //Parse Sales Order Object
+//         try {
+//             JSONObject jsonObj = new JSONObject(input);
+//             JSONObject data = jsonObj.getJSONObject("data");
+//             //one level deeper
+//             JSONArray dataDeeper = data.getJSONArray("data");
+//             //order information
+//             //Sales Order Number
+//              JSONObject order = dataDeeper.getJSONObject(0).getJSONObject("order");
+//              String number = order.getString("number");
+//                 System.out.println("@@@"+number);
+//                 for(int i=0;i<dataDeeper.length();i++){
+//                     //Barcode of item
+//                      JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+//                      String barcode = itemSite.getString("barcode");
+//                         //System.out.println("@@@"+barcode);
+//                     //Name of item
+//                      String itemNumber = itemSite.getString("number");
+//                         //System.out.println("@@@"+itemNumber);
+//                     //item description1
+//                      String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
+//                     //System.out.println("@@@"+description);
+//                     //quantity
+//                      String quantity = dataDeeper.getJSONObject(i).getString("ordered");
+//                     //System.out.println("@@@Quantity:"+quantity);
+//                 }
+//             }
+//              catch (JSONException e) {
+//                     // TODO Auto-generated catch block
+//                     e.printStackTrace();
+//             }
+//             return result;
+//     }
 
 //get issuable line items
     //request like..
@@ -207,8 +195,9 @@ public static List<String> getIssueToShippingAtShipping(String input) throws IOE
              String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
 
 
-                 String card = name + " of Quant " + Integer.toString(ordered-atShipping) + " " + description;
-                 System.out.println(card);
+                 String card = name + " of Quantity " + Integer.toString(ordered-atShipping) + " " + description;
+                 //System.out.println(card);
+                 System.out.println("Barcode:"+ barcode);
                     //System.out.println("@@@"+barcode);
                  result.add(barcode);
                // }
@@ -222,6 +211,92 @@ public static List<String> getIssueToShippingAtShipping(String input) throws IOE
 
             return result;
     }
+/** Return an Array of Barcodes **/
+public static List<String> getIssueToShippingDescriptions(String input) throws IOException{
+       // String input = "";
+     //String result = "";
+        List<String> result = new ArrayList();
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
+             int atShipping = Integer.parseInt(dataDeeper.getJSONObject(i).getString("atShipping"));
+             int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
+
+             if(ordered>atShipping){
+                 // System.out.println(ordered);
+                 // System.out.println(atShipping);
+             //description adding
+             JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+             String name = itemSite.getString("number");
+             String barcode = itemSite.getString("barcode").toString();
+             String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
+
+
+                 String card = name + " of Quantity " + Integer.toString(ordered-atShipping) + " " + description;
+                 System.out.println(card);
+                 //System.out.println("Barcode:"+ barcode);
+                    //System.out.println("@@@"+barcode);
+                 result.add(card);
+               // }
+                }
+            }
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+
+            return result;
+    }
+
+
+//Get shipment descriptions
+    /** Return an Array of Barcodes **/
+public static List<String> getShippingDescriptions(String input) throws IOException{
+       // String input = "";
+     //String result = "";
+        List<String> result = new ArrayList();
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
+             int atShipping = Integer.parseInt(dataDeeper.getJSONObject(i).getString("atShipping"));
+             int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
+
+             if(ordered<=atShipping){
+                 // System.out.println(ordered);
+                 // System.out.println(atShipping);
+             //description adding
+             JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+             String name = itemSite.getString("number");
+             String barcode = itemSite.getString("barcode").toString();
+             String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
+
+
+                 String card = name + " of Quantity " + Integer.toString(atShipping) + " Received from: " + description;
+                 System.out.println(card);
+                 //System.out.println("Barcode:"+ barcode);
+                    //System.out.println("@@@"+barcode);
+                 result.add(card);
+               // }
+                }
+            }
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+
+            return result;
+    }
+
 //get issuable line items
     //THIS SHOULD BE CHECKED BASED OFF OF THE ACTIVITYTYPE SHIPACTIVITY
 public static List<String> getIssuetoShippingShipmentNumber(String input) throws IOException{

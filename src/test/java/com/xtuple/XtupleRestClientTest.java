@@ -36,7 +36,7 @@ public class XtupleRestClientTest
 
         //System.out.println(result);
         try{
-        List<String> items = client.ParseIssueToShipping(result);
+        List<String> items = client.getIssueToShippingAtShipping(result);
             for (String i: items){
                 System.out.println(i);
             }
@@ -241,9 +241,11 @@ public class XtupleRestClientTest
 
     //Pratice GlassfloW
     public void testGlassAppFlow(){
-    System.out.println("Start of testGlassAppFlow");
-        //
+    System.out.println("Start of testGlassAppFlowView");
+        //representative of request
         HashMap<String, String> info = new HashMap<String, String>();
+        //representative of the cards
+        HashMap<String, String> cards = new HashMap<String, String>();
         //have to pass something whether its null or something
         Request asyncHttpRequest = new Request(info);
         //#Work
@@ -260,6 +262,7 @@ public class XtupleRestClientTest
                 // for (String i: items){
                 //     System.out.println(i);
                 // } //get items
+                List<String> descriptions = client.getIssueToShippingDescriptions(words);
             }
             catch (Exception e){
                  e.printStackTrace();
@@ -270,10 +273,10 @@ public class XtupleRestClientTest
          }
         //pick first hypothetically.
         //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
-    System.out.println("End of testGlassAppFlow");
+    System.out.println("End of testGlassAppFlowView");
     }
 
-    //Pratice GlassfloW
+    //Pratice GlassfloW DISPATCH
     public void testGlassAppFlowMatch(){
     System.out.println("Start of testGlassAppFlowMatch");
         //
@@ -291,8 +294,8 @@ public class XtupleRestClientTest
             try{
                 //line items
                 List<String> items  = client.getIssueToShippingAtShipping(words);
+                List<String> descriptions = client.getIssueToShippingDescriptions(words);
                 //orderIDs?
-
                 //Debugging
                 // for (String i: items){
                 //     System.out.println(i);
@@ -313,7 +316,6 @@ public class XtupleRestClientTest
                     //#Home 192.168.33.1
                     dispatchIssue.execute("http://192.168.33.1:8081/dispatchIssue");
                     String foo = dispatchIssue.getWords();
-                    System.out.println(foo);
                 }
                 //System.out.println(client.onPacklist(words,"1234-4567"));
                 System.out.println(client.onPacklist(words,"1234"));
@@ -331,10 +333,11 @@ public class XtupleRestClientTest
     }
 
 
+
 //**testGlassFlowDispatch
     //Pratice GlassfloW
-    public void testGlassFlowDispatch(){
-    System.out.println("Start of testGlassFlowDispatch");
+    public void testGetShipInventory(){
+    System.out.println("Start of get/Shippable");
         //
         HashMap<String, String> info = new HashMap<String, String>();
         //have to pass something whether its null or something
@@ -349,14 +352,55 @@ public class XtupleRestClientTest
         if (!words.equals("No Shippable Items!")){
             try{
                 //get shippable filtered Items
-                List<String> items = client.getIssuetoShippingShipmentNumber(words);
+                List<String> shipNumber = client.getIssuetoShippingShipmentNumber(words);
+                //visually check your order
+                List<String> descriptions = client.getShippingDescriptions(words);
+                //Debugging
+                  // for (String i: descriptions){
+                  //     System.out.println(i);
+                  // } //get items
+                //pick first
+            }
+            catch (Exception e){
+                 e.printStackTrace();
+             }
+         }
+         else{
+            System.out.println("No Shippable Items!");
+         }
+        //pick first hypothetically.
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
+    System.out.println("End of get/shippable");
+    }
+
+//**testGlassFlowDispatch
+    //Pratice GlassfloW
+    public void GlassFlowDispatch(){
+    System.out.println("Start of testGlassFlowDispatch/Shippable");
+        //
+        HashMap<String, String> info = new HashMap<String, String>();
+        //have to pass something whether its null or something
+        Request asyncHttpRequest = new Request(info);
+        //#Work
+        //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
+        //#Home 192.168.33.1
+        asyncHttpRequest.execute("http://localhost:8081/shipworkflow");
+        String words = asyncHttpRequest.getWords();
+        //System.out.println(words);
+        XtupleRestClient client = new XtupleRestClient();
+        if (!words.equals("No Shippable Items!")){
+            try{
+                //get shippable filtered Items
+                List<String> shipNumber = client.getIssuetoShippingShipmentNumber(words);
+                //visually check your order
+                List<String> descriptions = client.getIssueToShippingDescriptions(words);
                 //Debugging
                  // for (String i: items){
                  //     System.out.println(i);
                  // } //get items
                 //pick first
                 //#TODO VIEW AND VERIFY CONTENTS
-                String result = items.get(0);
+                String result = shipNumber.get(0);
                   HashMap<String, String> params = new HashMap<String, String>();
                     params.put("shipID", result);
                     Request dispatchIssue = new Request(params);
@@ -376,6 +420,6 @@ public class XtupleRestClientTest
          }
         //pick first hypothetically.
         //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
-    System.out.println("End of testGlassFlowDispatch");
+    System.out.println("End of testGlassFlowDispatch/shippable");
     }
 }
