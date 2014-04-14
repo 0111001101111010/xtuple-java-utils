@@ -267,6 +267,10 @@ public class XtupleRestClientTest
                 //     System.out.println(i);
                 // } //get items
                 List<String> descriptions = client.getIssueToShippingDescriptions(words);
+               List<String> uuids  = client.getIssueToShippingUUIDs(words);
+                for (String i: uuids){
+                    System.out.println(i);
+                }
             }
             catch (Exception e){
                  e.printStackTrace();
@@ -299,6 +303,10 @@ public class XtupleRestClientTest
                 //line items
                 List<String> items  = client.getIssueToShippingAtShipping(words);
                 List<String> descriptions = client.getIssueToShippingDescriptions(words);
+               List<String> uuids  = client.getIssueToShippingUUIDs(words);
+                for (String i: uuids){
+                    System.out.println(i);
+                }
                 //orderIDs?
                 //Debugging
                 // for (String i: items){
