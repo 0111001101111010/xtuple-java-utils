@@ -178,6 +178,10 @@ public class XtupleRestClientTest
             for (String i: items){
                 System.out.println(i);
             }
+             List<String> uuids  = client.getIssueToShippingUUIDs(result);
+            for (String i: uuids){
+                System.out.println(i);
+            }
             //client.FilterSalesOrderUUID()
             //System.out.println(output);
             //issuetoshipping vs shipped

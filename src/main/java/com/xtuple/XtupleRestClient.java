@@ -211,7 +211,48 @@ public static List<String> getIssueToShippingDescriptions(String input) throws I
 
             return result;
     }
+//GET UUIDS
+    /** Return an Array of Barcodes **/
+public static List<String> getIssueToShippingUUIDs(String input) throws IOException{
+       // String input = "";
+     //String result = "";
+        List<String> result = new ArrayList();
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             String shipment = dataDeeper.getJSONObject(i).get("shipment").toString();
+             int atShipping = Integer.parseInt(dataDeeper.getJSONObject(i).getString("atShipping"));
+             int ordered = Integer.parseInt(dataDeeper.getJSONObject(i).getString("ordered"));
 
+             if(ordered>atShipping){
+                 // System.out.println(ordered);
+                 // System.out.println(atShipping);
+             //description adding
+             JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+             String name = itemSite.getString("number");
+             String barcode = itemSite.getString("barcode").toString();
+             String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
+
+             String uuid = dataDeeper.getJSONObject(i).getString("uuid");
+                 String card = name + " of Quantity " + Integer.toString(ordered-atShipping) + " " + description;
+                 //System.out.println(uuid);
+                 //System.out.println("Barcode:"+ barcode);
+                    //System.out.println("@@@"+barcode);
+                 result.add(uuid);
+               // }
+                }
+            }
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+
+            return result;
+    }
 
 //Get shipment descriptions
     /** Return an Array of Barcodes **/
