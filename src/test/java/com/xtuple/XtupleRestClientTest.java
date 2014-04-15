@@ -406,11 +406,11 @@ public class XtupleRestClientTest
                 //get shippable filtered Items
                 List<String> shipNumber = client.getIssuetoShippingShipmentNumber(words);
                 //visually check your order
-                List<String> descriptions = client.getIssueToShippingDescriptions(words);
+                List<String> descriptions = client.ParseIssueToShipping(words);
                 //Debugging
-                 // for (String i: items){
-                 //     System.out.println(i);
-                 // } //get items
+                  for (String i: descriptions){
+                      System.out.println(i);
+                  } //get items
                 //pick first
                 //#TODO VIEW AND VERIFY CONTENTS
                 String result = shipNumber.get(0);
@@ -418,9 +418,10 @@ public class XtupleRestClientTest
                     params.put("shipID", result);
                     Request dispatchIssue = new Request(params);
                     //#Work
+                    //asyncHttpRequest.execute("http://localhost:8081/shipworkflow");
                     //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
                     //#Home 192.168.33.1
-                    dispatchIssue.execute("http://192.168.33.1:8081/dispatchShip");
+                    //dispatchIssue.execute("http://192.168.33.1:8081/dispatchShip");
                     String foo = dispatchIssue.getWords();
                     System.out.println(foo);
             }
