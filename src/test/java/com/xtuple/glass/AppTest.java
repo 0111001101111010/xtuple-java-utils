@@ -52,10 +52,7 @@ public class AppTest
 
     public void testgetRequest()
     {
-    runTestOnUiThread(new Runnable() { // THIS IS THE KEY TO SUCCESS
-        @Override
-        public void run() {
-            //
+
         AsyncHttpClient client = new AsyncHttpClient();
         client.get("http://www.google.com", new AsyncHttpResponseHandler() {
             @Override
@@ -63,8 +60,5 @@ public class AppTest
                 System.out.println(response);
             }
         });
-        }
-      });
     }
-
 }
