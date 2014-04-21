@@ -411,4 +411,33 @@ public static String onPacklist(String input, String match) throws IOException{
             //return nothing
             return "NOPE";
     }
+//get item position
+//get order weight
+
+    //get weight
+    public static Double getWeight(String input) throws IOException{
+        double totalWeight = 0;
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+             double productWeight =  Double.parseDouble(itemSite.getString("productWeight"));
+             double packageWeight =  Double.parseDouble(itemSite.getString("packageWeight"));
+             totalWeight = productWeight + packageWeight +totalWeight;
+             //ensure issuable
+            }
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+            //return nothing
+            return totalWeight;
+    }
+//get description
+//get number of items
+
 } // end of class

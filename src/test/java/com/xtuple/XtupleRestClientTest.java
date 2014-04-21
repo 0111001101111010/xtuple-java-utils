@@ -436,4 +436,28 @@ public class XtupleRestClientTest
         //asyncHttpRequest.execute("http://192.168.10.53:8081/orders");
     System.out.println("End of testGlassFlowDispatch/shippable");
     }
+
+///test weight
+   public void testWeight(){
+    System.out.println("\n\nStart of testWeight~2");
+        XtupleRestClient client = new XtupleRestClient();
+        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=P
+        //tell it which one to parse for example parse for all
+        //example return from activty query
+        String result = client.readFile("data/workflow/attributes[order.uuid]mixed.json");
+        try{
+            //pick first Sales Order UUID && Send in a Result
+            //sample UUID = f936ef4b-bd0a-44ab-ce94-7f120ffbb53a
+            double amount = client.getWeight(result);
+                System.out.println(amount);
+            //client.FilterSalesOrderUUID()
+            //System.out.println(output);
+            //issuetoshipping vs shipped
+        }
+        catch (Exception e){
+             e.printStackTrace();
+         }
+    System.out.println("End of of testWeight~2");
+    }
 }
+
