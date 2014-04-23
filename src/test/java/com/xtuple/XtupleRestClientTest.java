@@ -450,6 +450,8 @@ public class XtupleRestClientTest
             //sample UUID = f936ef4b-bd0a-44ab-ce94-7f120ffbb53a
             double amount = client.getWeight(result);
                 System.out.println(amount);
+            int numLineItems = client.numLineItems(result);
+                System.out.println(numLineItems);
             //client.FilterSalesOrderUUID()
             //System.out.println(output);
             //issuetoshipping vs shipped

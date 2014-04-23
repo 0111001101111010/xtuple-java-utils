@@ -437,7 +437,22 @@ public static String onPacklist(String input, String match) throws IOException{
             //return nothing
             return totalWeight;
     }
+
 //get description
 //get number of items
+    public static int numLineItems(String input) throws IOException{
+        double totalWeight = 0;
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            return dataDeeper.length();
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+            return -1;
+    }
 
 } // end of class
