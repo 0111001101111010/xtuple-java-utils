@@ -316,7 +316,7 @@ public class XtupleRestClientTest
                 //IF PRESENT RETURN ISSUE THE ATTACHED ORDER NUMBER?
                 //ELSE RETURN NOPE
                 //Passed in second parameter is your barcode
-                String result = client.onPacklist(words,"02210034676");
+                String result = client.onPacklist(words,"1234456712340");
                 if (!result.equals("NOPE")){
 //Send Request
                   HashMap<String, String> params = new HashMap<String, String>();
