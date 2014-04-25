@@ -499,8 +499,8 @@ public class XtupleRestClientTest
             System.out.println(position2);
             int position3 = client.getIssuetoShippingLinePosition(result,"1e793d7f-ef1a-44cb-87de-853f9713fa67");
             System.out.println(position3);
-            int position3 = client.getIssuetoShippingLinePosition(result,"916ca53f-3133-41be-8c3a-03d52ac08665");
-            System.out.println(position3);
+            int position4 = client.getIssuetoShippingLinePosition(result,"916ca53f-3133-41be-8c3a-03d52ac08665");
+            System.out.println(position4);
             //client.FilterSalesOrderUUID()
             //System.out.println(output);
             //issuetoshipping vs shipped
@@ -510,5 +510,31 @@ public class XtupleRestClientTest
          }
     System.out.println("End of of testPosition");
     }
+
+//test orders
+    //this only gives you issuable ones...
+   public void testOrderUUIDs(){
+    System.out.println("\n\nStart of testOrderUUIDs");
+        XtupleRestClient client = new XtupleRestClient();
+        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=P
+        //tell it which one to parse for example parse for all
+        //example return from activty query
+        String result = client.readFile("data/workflow/attributes[order.uuid]mixed.json");
+        try{
+                List<String> uuids = client.getOrderUUIDs(result);
+                // Debugging
+                  for (String i: uuids){
+                      System.out.println(i);
+                  } //get items
+                //pick first
+
+        }
+        catch (Exception e){
+             e.printStackTrace();
+         }
+    System.out.println("End of of testOrderUUIDs");
+    }
+
+
 }
 
