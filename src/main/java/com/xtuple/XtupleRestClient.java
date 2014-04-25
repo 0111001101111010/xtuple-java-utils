@@ -170,6 +170,8 @@ public static List<String> getIssueToShippingAtShipping(String input) throws IOE
 
             return result;
     }
+
+
 /** Return an Array of Barcodes **/
 public static List<String> getIssueToShippingDescriptions(String input) throws IOException{
        // String input = "";
@@ -195,7 +197,7 @@ public static List<String> getIssueToShippingDescriptions(String input) throws I
              String description = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("site").getString("description");
 
 
-                 String card = name + " of Quantity " + Integer.toString(ordered-atShipping) + " " + description;
+                 String card = name + "\n Quantity: " + Integer.toString(ordered-atShipping) + "\n From: " + description;
                  System.out.println(card);
                  //System.out.println("Barcode:"+ barcode);
                     //System.out.println("@@@"+barcode);
@@ -452,6 +454,31 @@ public static String onPacklist(String input, String match) throws IOException{
                 // TODO Auto-generated catch block
                 e.printStackTrace();
         }
+            return -1;
+    }
+//calculate position
+    public static int getIssuetoShippingLinePosition(String input, String match) throws IOException{
+
+        try {
+            JSONObject jsonObj = new JSONObject(input);
+            JSONObject data = jsonObj.getJSONObject("data");
+            JSONArray dataDeeper = data.getJSONArray("data");
+            for(int i=0;i<dataDeeper.length();i++)
+            {
+             JSONObject itemSite = dataDeeper.getJSONObject(i).getJSONObject("itemSite").getJSONObject("item");
+             String orderNumber = dataDeeper.getJSONObject(i).getString("uuid");
+             //ensure issuable
+                 if(orderNumber.equals(match)){
+                    return i+1;
+                 }
+             }
+
+         }//end of try
+        catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
+            //return nothing
             return -1;
     }
 

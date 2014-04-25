@@ -315,8 +315,8 @@ public class XtupleRestClientTest
 
                 //IF PRESENT RETURN ISSUE THE ATTACHED ORDER NUMBER?
                 //ELSE RETURN NOPE
-                //Passed in second parameter is your barcode
-                String result = client.onPacklist(words,"1234456712340");
+                //Passed in second parameter is your barcode 1234456712340
+                String result = client.onPacklist(words,"00");
                 if (!result.equals("NOPE")){
 //Send Request
                   HashMap<String, String> params = new HashMap<String, String>();
@@ -481,6 +481,34 @@ public class XtupleRestClientTest
              e.printStackTrace();
          }
     System.out.println("End of of testNumOfLineItems");
+    }
+//test weight
+   public void testPosition(){
+    System.out.println("\n\nStart of testPosition");
+        XtupleRestClient client = new XtupleRestClient();
+        //https://192.168.33.10:8443/inventory/api/v1alpha1/activity-list-item?attributes[activityType][EQUALS]=SalesOrderWorkflow&attributes[status][EQUALS]=P
+        //tell it which one to parse for example parse for all
+        //example return from activty query
+        String result = client.readFile("data/workflow/attributes[order.uuid]mixed.json");
+        try{
+            //pick first Sales Order UUID && Send in a Result
+            //sample UUID = f936ef4b-bd0a-44ab-ce94-7f120ffbb53a
+            int position = client.getIssuetoShippingLinePosition(result,"480e1ab4-1167-4058-f238-a2cb5d81cd79");
+            System.out.println(position);
+            int position2 = client.getIssuetoShippingLinePosition(result,"3060ae51-81ee-443d-e6ee-4a01754deeb5");
+            System.out.println(position2);
+            int position3 = client.getIssuetoShippingLinePosition(result,"1e793d7f-ef1a-44cb-87de-853f9713fa67");
+            System.out.println(position3);
+            int position3 = client.getIssuetoShippingLinePosition(result,"916ca53f-3133-41be-8c3a-03d52ac08665");
+            System.out.println(position3);
+            //client.FilterSalesOrderUUID()
+            //System.out.println(output);
+            //issuetoshipping vs shipped
+        }
+        catch (Exception e){
+             e.printStackTrace();
+         }
+    System.out.println("End of of testPosition");
     }
 }
 
